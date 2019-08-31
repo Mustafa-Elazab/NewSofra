@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dim_l"
+    android:layout_marginTop="@dimen/dim_m"
+    android:layout_marginEnd="@dimen/dim_l"
+    android:layout_marginBottom="@dimen/dim_s"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                android:id="@+id/Fragment_client_order_detail_img_foodimage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_18xl"
+                android:background="@drawable/shape_rectangel_corner_reduice"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pizzamin"
+                app:siShape="@drawable/shape_rounded_all_rectangle"
+                app:srcCompat="@drawable/ic_perm_identity_black"
+                tools:ignore="VectorDrawableCompat" />
+
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Fragment_client_order_detail_img_foodimage"
+                android:layout_marginTop="-20dp"
+                android:background="@drawable/shape_rectangel_corner_reduice"
+                android:layoutDirection="rtl">
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_foodname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim_l"
+                    android:layout_marginTop="@dimen/dim_s"
+                    android:layout_marginEnd="@dimen/dim_l"
+                    android:text="تشيكين تشيز"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/txt_size_2xl"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_fooddiscription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Fragment_client_order_detail_tv_foodname"
+                    android:layout_marginStart="@dimen/dim_l"
+                    android:layout_marginTop="@dimen/dim_s"
+                    android:layout_marginEnd="@dimen/dim_l"
+                    android:text="شويه فراخ من كنتاكي"
+                    android:textSize="@dimen/txt_size_m" />
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_foodprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Fragment_client_order_detail_tv_fooddiscription"
+                    android:layout_marginStart="@dimen/dim_l"
+                    android:layout_marginTop="@dimen/dim_s"
+                    android:layout_marginEnd="@dimen/dim_l"
+                    android:text="السعر :20 ريال"
+                    android:textSize="@dimen/txt_size_l" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/Fragment_client_order_detail_tv_timeforready"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relative"
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:text="مدة تجهيز العرض 20 دقيقه "
+                android:textSize="@dimen/txt_size_m"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/Fragment_client_order_detail_tv_timeforready"
+                android:layout_marginStart="@dimen/dim_m"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_m"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/Fragment_client_order_detail_tv_speial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view"
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:text="طلب خاص"
+                android:textSize="@dimen/txt_size_m"
+                android:textStyle="bold" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/Fragment_client_order_detail_ed_speial_order"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_10xl"
+                android:layout_below="@id/Fragment_client_order_detail_tv_speial"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:background="@drawable/shape_rectangel_corner_reduice">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="ادخل طلبك هنا"
+                    android:padding="@dimen/dim_m" />
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/Fragment_client_order_detail_ed_speial_order"
+                android:layout_marginStart="@dimen/dim_m"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_m"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/linear3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view2"
+                android:layout_marginStart="@dimen/dim_2xl"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:orientation="horizontal"
+                android:layoutDirection="rtl"
+                >
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_quantity"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="الكمية"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold"
+                    android:textAlignment="textStart"
+                    android:layout_marginHorizontal="@dimen/dim_s"/>
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_plus"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_marginHorizontal="@dimen/dim_m"
+                    android:textColor="@color/black"
+                    android:background="@drawable/plusminusoral"
+                    />
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_result"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_marginHorizontal="@dimen/dim_s"
+                    android:textColor="@color/black"
+                    android:background="@drawable/shape_result"
+                    />
+
+                <TextView
+                    android:id="@+id/Fragment_client_order_detail_tv_minus"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_marginHorizontal="@dimen/dim_m"
+                    android:background="@drawable/plusminusoral"/>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/Fragment_client_order_detail_btn_add_cart"
+                android:layout_width="@dimen/dim_3xl"
+                android:layout_height="@dimen/dim_3xl"
+                android:layout_below="@id/linear3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dim_2xl"
+                android:layout_marginBottom="@dimen/dim_7xl"
+                android:background="@drawable/oral_shape"
+                android:src="@drawable/ic_shopping_cart_black_24dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

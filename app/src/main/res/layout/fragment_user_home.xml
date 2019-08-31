@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:id="@+id/Linear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_3xl"
+        android:orientation="horizontal"
+        android:background="@color/gray"
+        android:layout_marginTop="@dimen/dim_m"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_rectangel_corner_reduice"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_s"
+
+            >
+
+            <ImageView
+                android:id="@+id/Fragment_Home_Cycle_img_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_search_black_24dp"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/dim_m"
+                android:layout_marginEnd="@dimen/dim_m"
+                />
+
+            <EditText
+                android:id="@+id/Fragment_Home_Cycle_ed_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@null"
+                android:padding="@dimen/dim_m"
+                />
+
+
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dim_s"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:background="@drawable/shape_rectangel_corner_reduice"
+            >
+
+            <Spinner
+                android:id="@+id/Fragment_Home_Cycle_sp_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutDirection="rtl"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Fragment_Home_Cycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/Linear"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_l"
+        android:layout_marginTop="@dimen/dim_m"
+
+        ></android.support.v7.widget.RecyclerView>
+</RelativeLayout>

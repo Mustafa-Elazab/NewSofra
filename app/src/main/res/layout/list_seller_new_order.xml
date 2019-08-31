@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_layout_border"
+        android:layoutDirection="rtl">
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:id="@+id/Resturant_order_Image"
+            tools:ignore="VectorDrawableCompat"
+            android:layout_width="@dimen/dim_10xl"
+            android:layout_height="@dimen/dim_8xl"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:background="@drawable/shape_rectangel_corner_reduice"
+            app:siShape="@drawable/shape_rounded_all_rectangle"
+            app:srcCompat="@drawable/ic_perm_identity_black"
+            android:layout_marginTop="@dimen/dim_s"
+            android:layout_marginBottom="@dimen/dim_s"
+            />
+
+        <LinearLayout
+            android:id="@+id/Linear"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_8xl"
+            android:layout_marginStart="@dimen/dim_l"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:layout_toEndOf="@+id/Resturant_order_Image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Resturant_order_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="دجاج كنتاكي"
+                android:textSize="@dimen/txt_size_l" />
+
+            <TextView
+                android:id="@+id/Resturant_order_order"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="دجاج كنتاكي"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/Resturant_order_price"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="دجاج كنتاكي"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/Resturant_order_location"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="دجاج كنتاكي"
+                android:textColor="@color/colorAccent" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_2xl"
+            android:layout_below="@id/Resturant_order_Image"
+            android:layout_marginStart="@dimen/dim_2xl"
+            android:layout_marginTop="@dimen/dim_l"
+            android:layout_marginEnd="@dimen/dim_2xl"
+            android:layout_marginBottom="@dimen/dim_m"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Resturant_order_call"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dim_2xl"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_marginBottom="@dimen/dim_m"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_splash"
+                android:text="@string/call"
+                android:textColor="@color/white"
+
+                />
+
+            <Button
+                android:id="@+id/Resturant_order_accept"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dim_2xl"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_marginBottom="@dimen/dim_m"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_green"
+                android:text="@string/accept"
+                android:textColor="@color/white"
+
+                />
+
+            <Button
+                android:id="@+id/Resturant_order_refuse"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dim_2xl"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_marginBottom="@dimen/dim_m"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_splash"
+                android:text="@string/refuse"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

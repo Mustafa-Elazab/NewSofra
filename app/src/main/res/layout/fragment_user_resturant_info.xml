@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginBottom="@dimen/dim_m"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/Fragment_food_order_cycle_home_resturantinfo_info_tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:gravity="start|center"
+                android:paddingEnd="@dimen/dim_l"
+                android:text="الحاله"
+                android:textSize="@dimen/txt_size_ll" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/Fragment_food_order_cycle_home_resturantinfo_info_tv_city"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:gravity="start|center"
+                android:paddingEnd="@dimen/dim_l"
+                android:text="الحاله"
+                android:textSize="@dimen/txt_size_ll" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/Fragment_food_order_cycle_home_resturantinfo_info_tv_block"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:gravity="start|center"
+                android:paddingEnd="@dimen/dim_l"
+                android:text="الحاله"
+                android:textSize="@dimen/txt_size_ll" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/Fragment_food_order_cycle_home_resturantinfo_info_tv_minmum"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:gravity="start|center"
+                android:paddingEnd="@dimen/dim_l"
+                android:text="الحاله"
+                android:textSize="@dimen/txt_size_ll" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/Fragment_food_order_cycle_home_resturantinfo_info_tv_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:gravity="start|center"
+                android:paddingEnd="@dimen/dim_l"
+                android:text="الحاله"
+                android:textSize="@dimen/txt_size_ll" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

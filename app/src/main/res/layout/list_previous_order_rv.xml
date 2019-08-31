@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circlue"
+            android:layout_width="@dimen/dim_8xl"
+            android:layout_height="@dimen/dim_8xl"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:src="@drawable/reslogo" />
+
+        <LinearLayout
+            android:id="@+id/Linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dim_l"
+            android:layout_toStartOf="@id/circlue"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/restaurant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="دجاج كنتاكي"
+                android:textSize="@dimen/txt_size_xl" />
+
+            <TextView
+                android:id="@+id/restaurant_order"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="دجاج كنتاكي"
+                android:textSize="@dimen/txt_size_l"
+                />
+
+            <TextView
+                android:id="@+id/restaurant_total"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="الاجمالي"
+                android:textSize="@dimen/txt_size_l"
+                android:layout_marginTop="@dimen/dim_s"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    </RelativeLayout>

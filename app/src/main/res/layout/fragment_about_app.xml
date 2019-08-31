@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/aboutus"
+    >
+
+    <TextView
+        android:id="@+id/Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_10xl"
+        android:layout_marginStart="@dimen/dim_2xl"
+        android:layout_marginEnd="@dimen/dim_2xl"
+        android:textSize="@dimen/txt_size_xl"
+        android:textStyle="bold"
+        android:background="@drawable/shape_rectangel_corner_reduice"
+        android:padding="@dimen/dim_l"
+        android:text="لهعثهاهقلانقلتلاقللاتقلاعقلالعهقاهعاقاهععهقاعهاقعهقاهعقاهعالعقلنتلالنلاتلاقععقعقعقعقعقعقععقعقعقعقعقعقعقععقعقعقعقههثهثههثهثههثهثهثههثههثهثهثهثهثهثههثهثههثهثعقععققعقععقعقعقعققععقعقعقعقعقعققعقعقعتيلارلارلايتلاثعهاهعث"
+        />
+</RelativeLayout>

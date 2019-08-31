@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/shape_rectangel_corner_reduice"
+    android:layout_marginTop="@dimen/dim_s"
+    android:layout_marginBottom="@dimen/dim_s"
+    android:layout_marginStart="@dimen/dim_l"
+    android:layout_marginEnd="@dimen/dim_l"
+    >
+
+
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_18xl">
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:id="@+id/List_Resturant_home_Image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_rectangel_corner_reduice"
+            app:siShape="@drawable/shape_rounded_all_rectangle"
+            app:srcCompat="@drawable/ic_perm_identity_black"
+            tools:ignore="VectorDrawableCompat"
+            android:src="@drawable/pizzamin"
+            android:scaleType="centerCrop"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/shape_rectangel_corner_reduice"
+        android:layoutDirection="rtl"
+        >
+
+        <TextView
+            android:id="@+id/list_user_menu_tv_order_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_l"
+            android:layout_marginEnd="@dimen/dim_xl"
+            android:layout_marginStart="@dimen/dim_xl"
+            android:text="تشيكين تشيز"
+            android:textSize="@dimen/txt_size_2xl"
+            android:textColor="@color/colorAccent"
+
+            />
+
+
+        <TextView
+            android:id="@+id/list_user_menu_tv_order_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/list_user_menu_tv_order_name"
+            android:layout_marginTop="@dimen/dim_s"
+            android:layout_marginEnd="@dimen/dim_xl"
+            android:layout_marginStart="@dimen/dim_xl"
+            android:text="شويه فراخ من كنتاكي"
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/list_user_menu_tv_order_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/list_user_menu_tv_order_description"
+            android:layout_marginTop="@dimen/dim_s"
+            android:layout_marginEnd="@dimen/dim_xl"
+            android:layout_marginStart="@dimen/dim_xl"
+            android:text="السعر :20 ريال"
+            android:textSize="@dimen/txt_size_l" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>

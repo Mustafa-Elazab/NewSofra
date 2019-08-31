@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/brook"
+
+    >
+
+    <TextView
+        android:id="@+id/Fragment_login_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim_11xl"
+        android:text="@string/login"
+        android:textSize="@dimen/txt_size_3xl" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Fragment_user_login_ed_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_4xl"
+        android:layout_below="@id/Fragment_login_login"
+        android:layout_marginStart="@dimen/dim_2xl"
+        android:layout_marginTop="@dimen/dim_2xl"
+        android:layout_marginEnd="@dimen/dim_2xl">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/ic_email_white"
+            android:drawablePadding="@dimen/dim_m"
+            android:hint="البريد الالكتروني"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/white"
+            android:lines="1"
+            android:maxLines="1"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold"
+            android:imeOptions="actionNext"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Fragment_user_login_ed_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_4xl"
+        android:layout_below="@id/Fragment_user_login_ed_email"
+        android:layout_marginStart="@dimen/dim_2xl"
+        android:layout_marginTop="@dimen/dim_2xl"
+        android:layout_marginEnd="@dimen/dim_2xl">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/ic_lock_black"
+            android:drawablePadding="@dimen/dim_m"
+            android:hint="كلمة المرور"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/white"
+            android:lines="1"
+            android:maxLines="1"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold"
+            android:imeOptions="actionNext"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/Fragment_user_login_tv_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Fragment_user_login_ed_password"
+        android:layout_marginStart="@dimen/dim_2xl"
+        android:layout_marginLeft="@dimen/dim_2xl"
+        android:layout_marginTop="@dimen/dim_m"
+        android:text="@string/forget_password"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/txt_size_m" />
+
+    <Button
+        android:id="@+id/Fragment_user_login_btn_enter"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_3xl"
+        android:layout_below="@id/Fragment_user_login_tv_forget_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/dim_10xl"
+        android:layout_marginTop="@dimen/dim_2xl"
+        android:layout_marginEnd="@dimen/dim_10xl"
+        android:background="@drawable/shape_btn_splash"
+        android:text="@string/enter"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_xl" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_2xl"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_dark"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dim_m"
+            android:text="ليس لديك حساب ؟"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_m"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/dim_ss"
+            />
+
+        <TextView
+            android:id="@+id/Fragment_user_login_tv_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dim_m"
+            android:text=" اضغط هنا"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/txt_size_m"
+            android:layout_marginBottom="@dimen/dim_ss"
+
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

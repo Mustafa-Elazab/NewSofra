@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:id="@+id/relative_write"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/Linear"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_m"
+                    android:text="@string/contact_us"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/txt_size_2xl" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fragment_contactus_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dim_m"
+                    android:layout_marginTop="@dimen/dim_l"
+                    android:layout_marginEnd="@dimen/dim_m"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_layout_border"
+                    android:paddingStart="@dimen/dim_xl"
+                    android:paddingEnd="@dimen/dim_xl"
+
+                    >
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/full_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fragment_contactus_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dim_m"
+                    android:layout_marginTop="@dimen/dim_l"
+                    android:layout_marginEnd="@dimen/dim_m"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_layout_border"
+                    android:paddingStart="@dimen/dim_l"
+                    android:paddingEnd="@dimen/dim_l"
+
+
+                    >
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="start"
+                        android:hint="@string/email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fragment_contactus_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dim_m"
+                    android:layout_marginTop="@dimen/dim_l"
+                    android:layout_marginEnd="@dimen/dim_m"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_layout_border"
+                    android:paddingStart="@dimen/dim_l"
+                    android:paddingEnd="@dimen/dim_l"
+
+                    >
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLines="1" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fragment_contactus_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dim_m"
+                    android:layout_marginTop="@dimen/dim_l"
+                    android:layout_marginEnd="@dimen/dim_m"
+                    android:layout_weight="3"
+                    android:background="@drawable/shape_layout_border"
+                    android:paddingStart="@dimen/dim_l"
+                    android:paddingEnd="@dimen/dim_l">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="start"
+                        android:hint="@string/message" />
+
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/Radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_3xl"
+                android:layout_below="@id/Linear"
+                android:layout_marginTop="@dimen/dim_m"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_complaint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/dim_m"
+                    android:checked="true"
+                    android:text="@string/complaint"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_suggestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/dim_m"
+                    android:text="@string/suggestion"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_inquiry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/dim_m"
+                    android:text="@string/inquiry"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textStyle="bold"
+
+                    />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/fragment_contactus_btn_send"
+                android:layout_width="@dimen/dim_20xl"
+                android:layout_height="@dimen/dim_2xl"
+                android:layout_below="@id/Radio_group"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dim_xl"
+                android:layout_marginBottom="@dimen/dim_7xl"
+                android:background="@drawable/shape_btn_splash"
+                android:text="@string/send"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_ll"
+                android:textStyle="bold" />
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_7xl"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:background="@drawable/shape_layout_border"
+        >
+
+        <ImageView
+            android:id="@+id/list_notifications_rv_notifiy"
+            android:layout_width="@dimen/dim_3xl"
+            android:layout_height="@dimen/dim_3xl"
+            app:srcCompat="@drawable/ic_notifications"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dim_l"
+            />
+
+        <TextView
+            android:id="@+id/list_notifications_rv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="nkvbkbfkjkjnnkfknkfjnkfffkjkfjnfkkkkkfffvfb"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/txt_size_m"
+            android:layout_marginEnd="@dimen/dim_8xl"
+            android:layout_marginStart="@dimen/dim_8xl"
+
+            />
+        <TextView
+            android:id="@+id/list_notifications_rv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="ndvkbv"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_access_time_black"
+            android:drawablePadding="@dimen/dim_s"
+            android:textSize="@dimen/txt_size_s"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/dim_m"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

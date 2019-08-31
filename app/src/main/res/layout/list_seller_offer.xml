@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/Activity_Item_PsIv_Activity_Swipe_Layout"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@null"
+app:dragEdge="left"
+app:mode="same_level">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dim_l"
+    android:background="@null"
+    android:gravity="center_vertical"
+    android:layoutDirection="rtl"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/dim_l"
+    android:paddingEnd="@dimen/dim_l">
+
+    <ImageView
+        android:id="@+id/Swipe_Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        app:srcCompat="@drawable/ic_mode_edit" />
+
+    <ImageView
+        android:id="@+id/Swipe_Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        app:srcCompat="@drawable/ic_delete_black" />
+</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dim_12xl"
+    android:layout_marginStart="@dimen/dim_m"
+    android:layout_marginTop="@dimen/dim_m"
+    android:background="@drawable/shape_layout_border"
+    android:layout_toStartOf="@id/list_Resturant_offer_img_rv"
+    >
+
+
+    <TextView
+        android:id="@+id/list_Resturant_offer_tv_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="دجاج كنتاكي"
+        android:textSize="@dimen/txt_size_2xl" />
+
+
+</RelativeLayout>
+
+<de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/list_Resturant_offer_img_rv"
+    android:layout_width="@dimen/dim_9xl"
+    android:layout_height="@dimen/dim_9xl"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="0dp"
+    android:layout_marginTop="@dimen/dim_l"
+    android:layout_marginEnd="0dp"
+    android:src="@drawable/reslogo"
+    android:background="@drawable/shape_rounded_all_circle"
+     />
+    </RelativeLayout>
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

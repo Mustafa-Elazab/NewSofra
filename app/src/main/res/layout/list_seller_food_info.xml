@@ -1,0 +1,121 @@
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Activity_Item_PsIv_Activity_Swipe_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dim_m"
+    android:background="@null"
+    android:paddingTop="@dimen/dim_sss"
+    android:paddingBottom="@dimen/dim_sss"
+    app:dragEdge="left"
+    app:mode="same_level">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dim_l"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dim_l"
+        android:paddingEnd="@dimen/dim_l">
+
+        <ImageView
+            android:id="@+id/Swipe_Edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            app:srcCompat="@drawable/ic_mode_edit"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/Swipe_Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            app:srcCompat="@drawable/ic_delete_black"
+            tools:ignore="VectorDrawableCompat" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_sss"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_rectangel_corner_reduice">
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:id="@+id/List_Resturant_home_Image"
+            android:layout_width="@dimen/dim_10xl"
+            android:layout_height="@dimen/dim_8xl"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_s"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:layout_marginBottom="@dimen/dim_s"
+            android:background="@drawable/shape_rectangel_corner_reduice"
+            app:siShape="@drawable/shape_rounded_all_rectangle"
+            app:srcCompat="@drawable/ic_perm_identity_black"
+            tools:ignore="VectorDrawableCompat" />
+
+        <LinearLayout
+            android:id="@+id/Linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dim_s"
+            android:layout_marginStart="@dimen/dim_s"
+            android:layout_marginBottom="@dimen/dim_m"
+            android:layout_toStartOf="@id/List_Resturant_home_Image"
+            android:layout_toEndOf="@id/List_Resturant_order_home_money"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/List_Resturant_order_home_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="دجاج كنتاكي"
+                android:textSize="@dimen/txt_size_l" />
+
+            <TextView
+                android:id="@+id/List_Resturant_order_home_content"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="دجاج كنتاكي" />
+
+            <TextView
+                android:id="@+id/List_Resturant_order_home_total"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dim_s"
+                android:layout_marginBottom="@dimen/dim_m"
+                android:layout_weight="1"
+                android:text="الاجمالي"
+
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/List_Resturant_order_home_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:gravity="center"
+            android:text="السعر 20 ريال" />
+    </RelativeLayout>
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>
+

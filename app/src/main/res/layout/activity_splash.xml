@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".ui.activity.Splash.SplashActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/logo"
+        android:layout_height="@dimen/logo"
+        android:layout_below="@id/background_image2"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+
+        />
+
+    <ImageView
+        android:id="@+id/background_image1"
+        android:layout_width="@dimen/logo"
+        android:layout_height="@dimen/logo"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/cropplant"
+
+        />
+
+    <ImageView
+        android:id="@+id/background_image2"
+        android:layout_width="@dimen/logo"
+        android:layout_height="@dimen/logo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/plantt"
+
+        />
+
+    <Button
+        android:id="@+id/Activity_Splash_order"
+        android:layout_width="@dimen/logo"
+        android:layout_height="@dimen/dim_2xl"
+        android:layout_below="@id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim_l"
+        android:background="@drawable/shape_btn_splash"
+        android:text="@string/order_food"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_xl" />
+
+    <Button
+        android:id="@+id/Activity_Splash_sale"
+        android:layout_width="@dimen/logo"
+        android:layout_height="@dimen/dim_2xl"
+        android:layout_below="@id/Activity_Splash_order"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim_l"
+        android:background="@drawable/shape_btn_splash"
+        android:text="@string/sale_food"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_xl" />
+
+</RelativeLayout>

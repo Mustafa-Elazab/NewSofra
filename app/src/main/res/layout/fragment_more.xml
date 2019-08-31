@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        android:textSize="@dimen/txt_size_2xl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim_xl"
+        />
+
+    <LinearLayout
+        android:id="@+id/Linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/text"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginStart="@dimen/dim_xl"
+        android:layout_marginEnd="@dimen/dim_xl"
+        android:layoutDirection="rtl"
+        >
+
+        <TextView
+            android:id="@+id/Fragment_Seller_more_tv_offers"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_marginTop="@dimen/dim_m"
+            android:textSize="@dimen/txt_size_l"
+            android:text="@string/my_offer"
+            android:drawableStart="@drawable/ic_offer"
+            android:drawablePadding="@dimen/dim_l"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/dim_m"
+            />
+        <TextView
+            android:id="@+id/Fragment_Seller_more_tv_contactus"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_marginTop="@dimen/dim_m"
+            android:textSize="@dimen/txt_size_l"
+            android:text="@string/contact_us"
+            android:drawableStart="@drawable/ic_email_black"
+            android:drawablePadding="@dimen/dim_l"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/dim_m"
+            />
+        <TextView
+            android:id="@+id/Fragment_Seller_more_tv_aboutapp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_marginTop="@dimen/dim_m"
+            android:textSize="@dimen/txt_size_l"
+            android:text="@string/aboutapp"
+            android:drawableStart="@drawable/ic_aboutapp"
+            android:drawablePadding="@dimen/dim_l"
+
+            />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/dim_m"
+            />
+
+        <TextView
+            android:id="@+id/Fragment_Seller_more_tv_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_marginTop="@dimen/dim_m"
+            android:textSize="@dimen/txt_size_l"
+            android:text="@string/comment_rating"
+            android:drawableStart="@drawable/ic_star_black"
+            android:drawablePadding="@dimen/dim_l"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/dim_m"
+            />
+        <TextView
+            android:id="@+id/Fragment_Seller_more_tv_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_marginTop="@dimen/dim_m"
+            android:textSize="@dimen/txt_size_l"
+            android:text="@string/exit"
+            android:drawableStart="@drawable/ic_exit_to_app"
+            android:drawablePadding="@dimen/dim_l"
+
+            />
+    </LinearLayout>
+</RelativeLayout>

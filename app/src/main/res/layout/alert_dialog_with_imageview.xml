@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dim_xl"
+    android:layout_marginEnd="@dimen/dim_xl"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_layout_border"
+
+
+        >
+
+        <TextView
+            android:id="@+id/Alert_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/add_rating"
+            android:textSize="@dimen/txt_size_2xl"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/Alert_linear"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_9xl"
+            android:layout_below="@id/Alert_text"
+            android:layout_marginStart="@dimen/dim_xl"
+            android:layout_marginTop="@dimen/dim_xl"
+            android:layout_marginEnd="@dimen/dim_xl"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView_very_sad"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_face_very_sad" />
+
+            <ImageView
+                android:id="@+id/imageView_sad"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_face_sad" />
+
+            <ImageView
+                android:id="@+id/imageView_neutral"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_face_neutral" />
+
+            <ImageView
+                android:id="@+id/imageView_happy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_face_happy" />
+
+            <ImageView
+                android:id="@+id/imageView_very_happy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/dim_m"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_face_very_happy" />
+
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/Alert_editText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_10xl"
+            android:layout_below="@id/Alert_linear"
+            android:layout_marginStart="@dimen/dim_xl"
+            android:layout_marginTop="@dimen/dim_xl"
+            android:layout_marginEnd="@dimen/dim_xl"
+            android:background="@drawable/shape_rectangel_corner_reduice"
+            android:gravity="start"
+            android:hint="اضف تعليق"
+            android:paddingStart="@dimen/dim_l"
+            android:paddingEnd="@dimen/dim_l"
+            android:textSize="@dimen/txt_size_ll"
+
+            />
+
+        <Button
+            android:id="@+id/Alert_Btn"
+            android:layout_width="@dimen/dim_18xl"
+            android:layout_height="@dimen/dim_4xl"
+            android:layout_below="@id/Alert_editText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dim_xl"
+            android:layout_marginTop="@dimen/dim_xl"
+            android:layout_marginEnd="@dimen/dim_xl"
+            android:background="@drawable/shape_btn_splash"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_ll"
+            android:layout_marginBottom="@dimen/dim_4xl"
+            />
+    </RelativeLayout>
+</RelativeLayout>
