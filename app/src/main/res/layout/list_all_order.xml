@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dim_m"
+    android:background="@drawable/shape_layout_border"
+    >
+
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+        android:id="@+id/list_all_order_img_orderimage"
+        android:layout_width="@dimen/dim_10xl"
+        android:layout_height="@dimen/dim_8xl"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_s"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:layout_marginBottom="@dimen/dim_s"
+        android:background="@drawable/shape_rectangel_corner_reduice"
+        app:siShape="@drawable/shape_rounded_all_rectangle"
+        app:srcCompat="@drawable/ic_perm_identity_white"
+        tools:ignore="VectorDrawableCompat" />
+
+    <LinearLayout
+        android:id="@+id/Linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/list_all_order_img_orderimage"
+        android:layout_toEndOf="@id/list_all_order_img_ordercancel"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_l"
+        >
+
+        <TextView
+            android:id="@+id/list_all_order_tv_orderprice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="fhfgghhhh"
+            android:layout_weight="1"
+            android:layoutDirection="rtl"
+            />
+
+        <TextView
+            android:id="@+id/list_all_order_tv_ordername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_s"
+            android:layout_marginEnd="@dimen/dim_s"
+            android:text="hhhhh"
+            android:layout_weight="1"
+            android:textSize="@dimen/txt_size_l"
+            android:layoutDirection="rtl"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Linear"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:orientation="horizontal"
+        android:layout_toStartOf="@id/list_all_order_img_orderimage"
+        android:layout_toEndOf="@id/list_all_order_img_ordercancel"
+        android:layoutDirection="rtl"
+        >
+
+        <TextView
+            android:id="@+id/list_all_order_tv_orderamount"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="الكمية"
+            android:textSize="@dimen/txt_size_s"
+            android:textStyle="bold"
+            android:textAlignment="textStart"
+           />
+
+        <TextView
+            android:id="@+id/list_all_order_tv_orderplus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="@dimen/dim_s"
+            android:textColor="@color/black"
+            android:background="@drawable/plusminusoral"
+            />
+
+        <TextView
+            android:id="@+id/list_all_order_tv_orderresult"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="@dimen/dim_s"
+            android:textColor="@color/black"
+            android:background="@drawable/shape_result"
+            />
+
+        <TextView
+            android:id="@+id/list_all_order_tv_orderminus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="@dimen/dim_s"
+            android:background="@drawable/plusminusoral"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/list_all_order_img_ordercancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cancel"
+        android:layout_toStartOf="@id/Linear2"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_xl"
+        />
+
+</RelativeLayout>

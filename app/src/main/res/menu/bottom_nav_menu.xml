@@ -4,21 +4,28 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_home_white"
+        android:iconTint="@color/white"
         tools:ignore="MenuTitle" />
 
     <item
         android:id="@+id/navigation_order"
         android:icon="@drawable/ic_dashboard_black_24dp"
+        android:iconTint="@color/white"
         tools:ignore="MenuTitle" />
 
     <item
         android:id="@+id/navigation_info"
-        android:icon="@drawable/ic_perm_identity_black"
-        tools:ignore="MenuTitle" />
+        android:icon="@drawable/ic_perm_identity_white"
+        tools:ignore="MenuTitle"
+        android:iconTint="@color/white"
+        />
 
     <item
         android:id="@+id/navigation_more"
         android:icon="@drawable/ic_more_horiz"
-        tools:ignore="MenuTitle" />
+        tools:ignore="MenuTitle"
+        android:iconTint="@color/white"
+
+        />
 </menu>

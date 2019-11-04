@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/Fragment_client_all_order_detail1_tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="تفاصيل الطلب"
+        android:textSize="@dimen/txt_size_l"
+        android:layout_marginTop="@dimen/dim_l"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Fragment_client_all_order_detail1_ed_notes"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_8xl"
+        android:layout_below="@id/Fragment_client_all_order_detail1_tv_text"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_layout_border"
+        android:padding="@dimen/dim_s">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="اضافة ملاحظة"
+            android:textSize="@dimen/txt_size_m" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/Fragment_client_all_order_detail1_tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Fragment_client_all_order_detail1_ed_notes"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:text="عنوان التفاصيل"
+        android:textSize="@dimen/txt_size_m" />
+
+    <TextView
+        android:id="@+id/Fragment_client_all_order_detail1_tv_txtaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Fragment_client_all_order_detail1_tv_address"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:text="عنوان التفاصيل"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/txt_size_m" />
+
+    <TextView
+        android:id="@+id/Fragment_client_all_order_detail1_tv_paid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Fragment_client_all_order_detail1_tv_txtaddress"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:text="الدفع"
+        android:textSize="@dimen/txt_size_m" />
+
+    <RelativeLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_9xl"
+        android:layout_below="@id/Fragment_client_all_order_detail1_tv_paid">
+
+        <TextView
+            android:id="@+id/online_cash_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="اونلاين"
+            android:layout_marginStart="@dimen/dim_l"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_l"
+            />
+        <CheckBox
+            android:id="@+id/Fragment_client_all_order_detail1_btn_cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dim_l"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_l"
+            android:background="@drawable/shape_oval"
+            android:gravity="center_vertical"
+            android:layout_below="@id/online_cash_tv"
+            android:checked="true"
+
+            />
+
+        <TextView
+            android:id="@+id/delivery_cash_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="عند الاستلام"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_l"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_l"
+            />
+
+        <CheckBox
+            android:id="@+id/Fragment_client_all_order_detail1_btn_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/delivery_cash_tv"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_l"
+            android:background="@drawable/shape_oval"
+             />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_ed_white_rect">
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail1_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:padding="@dimen/dim_s"
+            android:text="المجموع"
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail1_tv_deliverycost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail1_tv_price"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:padding="@dimen/dim_s"
+            android:text="رسوم التوصيل"
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail1_tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail1_tv_deliverycost"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:padding="@dimen/dim_s"
+            android:text="الاجمالي"
+            android:textSize="@dimen/txt_size_m" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/Fragment_client_all_order_detail1_btn_confirm"
+        android:layout_width="@dimen/dim_18xl"
+        android:layout_height="@dimen/dim_2xl"
+        android:layout_below="@id/relative"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginBottom="@dimen/dim_l"
+        android:background="@drawable/shape_btn_splash"
+        android:text="تاكيد الطلب"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_m"
+        android:textStyle="bold" />
+</RelativeLayout>

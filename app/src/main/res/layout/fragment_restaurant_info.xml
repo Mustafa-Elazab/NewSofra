@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        >
 
         <RelativeLayout
             android:id="@+id/bhghf"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/Fragment_seller_edit_img_profile"
-                android:layout_width="@dimen/dim_9xl"
-                android:layout_height="@dimen/dim_9xl"
-                android:layout_alignParentTop="true"
+                android:id="@+id/Fragment_seller_edit_img_market"
+                android:layout_width="@dimen/dim_12xl"
+                android:layout_height="@dimen/dim_12xl"
+                android:layout_marginTop="@dimen/dim_l"
+                android:src="@drawable/ic_store_mall_directory_black"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dim_xl"
-                android:src="@drawable/newuser" />
+                />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/Fragment_seller_edit_ed_restaurantname"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_seller_edit_img_profile"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginTop="@dimen/dim_xl"
                 android:layout_marginEnd="@dimen/dim_m"
@@ -36,9 +39,8 @@
                 android:background="@drawable/shape_layout_border"
                 android:paddingStart="@dimen/dim_m"
                 android:paddingEnd="@dimen/dim_m"
-
+                android:layout_below="@+id/Fragment_seller_edit_img_market"
                 >
-
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
@@ -72,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_email_white"
+                    android:drawableEnd="@drawable/ic_email_black"
                     android:drawablePadding="@dimen/dim_m"
                     android:hint="البريد الالكتروني"
                     android:imeOptions="actionNext"
@@ -81,72 +83,39 @@
                     android:maxLines="1"
                     android:textSize="@dimen/txt_size_l"
                     android:textStyle="bold"
-
                     android:background="@null"
-
                     android:drawableRight="@drawable/ic_email_white" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/Fragment_seller_edit_phone"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_seller_edit_email"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-                android:background="@drawable/shape_layout_border"
-                android:paddingStart="@dimen/dim_m"
-                android:paddingEnd="@dimen/dim_m"
-                >
-
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_call_black"
-                    android:drawablePadding="@dimen/dim_m"
-                    android:hint="الجوال"
-                    android:imeOptions="actionNext"
-                    android:inputType="phone"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:textSize="@dimen/txt_size_l"
-                    android:textStyle="bold"
-                    android:background="@null"
-
-                    android:drawableRight="@drawable/ic_call_black" />
             </android.support.design.widget.TextInputLayout>
 
             <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_seller_edit_phone"
+                android:layout_below="@id/Fragment_seller_edit_email"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginTop="@dimen/dim_l"
                 android:layout_marginEnd="@dimen/dim_m"
                 android:layoutDirection="rtl"
                 android:background="@drawable/shape_layout_border"
-
-
                 >
 
                 <ImageView
+                    android:id="@+id/image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/ic_home_black"
+                    android:src="@drawable/ic_home_black_24dp"
                     android:paddingStart="@dimen/dim_m"
                     android:paddingEnd="@dimen/dim_m"
-                    android:layout_alignParentLeft="true" />
+                    />
 
                 <Spinner
                     android:id="@+id/Fragment_seller_edit_sp_city"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dim_l"
+                    android:layout_toEndOf="@id/image"
                     />
             </RelativeLayout>
 
@@ -164,123 +133,30 @@
                 >
 
                 <ImageView
+                    android:id="@+id/image2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/ic_home_black"
+                    app:srcCompat="@drawable/ic_home_black_24dp"
+                    tools:ignore="VectorDrawableCompat"
                     android:paddingStart="@dimen/dim_m"
-                    android:paddingEnd="@dimen/dim_m"
-                    android:layout_alignParentLeft="true" />
+                    android:paddingEnd="@dimen/dim_m"/>
 
                 <Spinner
                     android:id="@+id/Fragment_seller_edit_sp_block"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:padding="@dimen/dim_l"
+                    android:layout_toEndOf="@id/image2"
                     />
             </RelativeLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/Fragment_seller_edit_ed_password"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/relative2"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-                android:background="@drawable/shape_layout_border"
-                android:paddingStart="@dimen/dim_m"
-                android:paddingEnd="@dimen/dim_m"
-                >
-
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_lock_black"
-                    android:drawablePadding="@dimen/dim_m"
-                    android:hint="كلمة المرور"
-                    android:imeOptions="actionNext"
-                    android:inputType="textWebPassword"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:textSize="@dimen/txt_size_l"
-                    android:textStyle="bold"
-                    android:background="@null"
-
-                    android:drawableRight="@drawable/ic_lock_black" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/Fragment_seller_edit_ed_password_confirm"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_seller_edit_ed_password"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-                android:background="@drawable/shape_layout_border"
-                android:paddingStart="@dimen/dim_m"
-                android:paddingEnd="@dimen/dim_m"
-                >
-
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_lock_black"
-                    android:drawablePadding="@dimen/dim_m"
-                    android:hint="كلمة المرور"
-                    android:imeOptions="actionNext"
-                    android:inputType="textWebPassword"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:textSize="@dimen/txt_size_l"
-                    android:textStyle="bold"
-                    android:background="@null"
-
-                    android:drawableRight="@drawable/ic_lock_black" />
-            </android.support.design.widget.TextInputLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/relative3"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_seller_edit_ed_password_confirm"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-                android:layoutDirection="rtl"
-                android:background="@drawable/shape_layout_border"
-
-                >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:paddingStart="@dimen/dim_m"
-                    android:paddingEnd="@dimen/dim_m"
-                    app:srcCompat="@drawable/ic_perm_identity_black"
-                    android:layout_alignParentLeft="true" />
-
-                <Spinner
-                    android:id="@+id/Fragment_seller_edit_sp_categories"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    />
-            </RelativeLayout>
-
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/Fragment_seller_edit_ed_min"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/relative3"
+                android:layout_below="@id/relative2"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginTop="@dimen/dim_l"
                 android:layout_marginEnd="@dimen/dim_m"
@@ -396,7 +272,6 @@
                     android:textSize="@dimen/txt_size_l"
                     android:textStyle="bold"
                     android:background="@null"
-
                     android:drawableRight="@drawable/ic_call_black" />
             </android.support.design.widget.TextInputLayout>
 
@@ -418,7 +293,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/whatsapp"
                     android:drawablePadding="@dimen/dim_m"
                     android:hint="واتس اب"
                     android:imeOptions="actionNext"
@@ -428,46 +302,20 @@
                     android:textSize="@dimen/txt_size_l"
                     android:textStyle="bold"
                     android:background="@null"
-
-                    android:drawableRight="@drawable/whatsapp" />
+                    android:drawableRight="@drawable/whatsapp"
+                    android:drawableEnd="@drawable/whatsapp"
+                     />
             </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:id="@+id/Fragment_seller_edit_tv_market"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Fragment_seller_edit_ed_whatsapp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-                android:text="@string/market_image"
-                android:textSize="@dimen/txt_size_xl"
-                android:textStyle="bold"
-                android:layout_alignParentRight="true" />
-
-            <ImageView
-                android:id="@+id/Fragment_seller_edit_img_market"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/Fragment_seller_edit_tv_market"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-                app:srcCompat="@drawable/ic_store_mall"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true" />
-
             <Button
                 android:id="@+id/Fragment_seller_edit_btn_sign"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_3xl"
-                android:layout_below="@id/Fragment_seller_edit_img_market"
+                android:layout_below="@id/Fragment_seller_edit_ed_whatsapp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="@dimen/dim_10xl"
                 android:layout_marginTop="@dimen/dim_2xl"
                 android:layout_marginEnd="@dimen/dim_10xl"
-                android:layout_marginBottom="@dimen/dim_7xl"
+                android:layout_marginBottom="@dimen/dim_l"
                 android:background="@drawable/shape_btn_splash"
                 android:text="@string/edit"
                 android:textColor="@color/white"

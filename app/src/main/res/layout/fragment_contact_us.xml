@@ -12,12 +12,12 @@
         <RelativeLayout
             android:id="@+id/relative_write"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/Linear"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="350dp"
                 android:background="@color/white"
                 android:orientation="vertical">
 
@@ -28,7 +28,7 @@
                     android:layout_marginTop="@dimen/dim_m"
                     android:text="@string/contact_us"
                     android:textAlignment="center"
-                    android:textSize="@dimen/txt_size_2xl" />
+                    android:textSize="@dimen/txt_size_l" />
 
 
                 <android.support.design.widget.TextInputLayout
@@ -113,7 +113,7 @@
                     android:layout_marginStart="@dimen/dim_m"
                     android:layout_marginTop="@dimen/dim_l"
                     android:layout_marginEnd="@dimen/dim_m"
-                    android:layout_weight="3"
+                    android:layout_weight="2.5"
                     android:background="@drawable/shape_layout_border"
                     android:paddingStart="@dimen/dim_l"
                     android:paddingEnd="@dimen/dim_l">
@@ -183,7 +183,7 @@
                 android:layout_below="@id/Radio_group"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dim_xl"
-                android:layout_marginBottom="@dimen/dim_7xl"
+                android:layout_marginBottom="@dimen/dim_l"
                 android:background="@drawable/shape_btn_splash"
                 android:text="@string/send"
                 android:textAlignment="center"
@@ -191,9 +191,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt_size_ll"
                 android:textStyle="bold" />
-
-
-
 
 
         </RelativeLayout>

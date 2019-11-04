@@ -1,138 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/list_seller_commission_tv_commission_rv"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_l"
-        android:text="@string/commission"
-        android:textSize="@dimen/txt_size_2xl"
-        android:layout_centerHorizontal="true"
-        />
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/list_seller_commission_tv_text_rv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dim_l"
-            android:text="يرجي تحويل 10% من الربح المباع في مدة اقصاها شهر علما بان جميع الطلبات ستكون مسجلة في حسابك الشخصي"
-            android:textSize="@dimen/txt_size_l"
-            android:textAlignment="textStart"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/list_seller_commission_tv_commission_rv"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/dim_l"
-            android:layout_marginEnd="@dimen/dim_l"
-            />
-
-
-        <LinearLayout
-            android:id="@+id/Linear"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="@dimen/dim_xl"
-            android:layout_marginTop="@dimen/dim_4xl"
-            android:layout_marginEnd="@dimen/dim_xl"
-            android:layout_below="@id/list_seller_commission_tv_text_rv"
-            android:layoutDirection="rtl"
-            >
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/list_seller_commission_tv_restuantsales_rv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/restaurant_sales"
-         />
+            <TextView
+                android:id="@+id/list_seller_commission_tv_commission_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dim_l"
+                android:text="@string/commission"
+                android:textSize="@dimen/txt_size_xl" />
 
-        <TextView
-            android:id="@+id/list_seller_commission_tv_appcommission_rv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/app_commission"
-
-
-            />
-
-        <TextView
-            android:id="@+id/list_seller_commission_tv_paid_rv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/what_has_been_paid"
-            android:gravity="center"
-
-            />
-
-        <TextView
-            android:id="@+id/list_seller_commission_tv_residual_rv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/residual"
-            android:gravity="center"
-
-            />
-        </LinearLayout>
+            <TextView
+                android:id="@+id/list_seller_commission_tv_text_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_seller_commission_tv_commission_rv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:text="يرجي تحويل 10% من الربح المباع في مدة اقصاها شهر علما بان جميع الطلبات ستكون مسجلة في حسابك الشخصي"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/txt_size_m"
+                android:textStyle="bold" />
 
 
-        <LinearLayout
-            android:id="@+id/Linear2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/Linear"
-            android:layoutDirection="rtl"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="@dimen/dim_xl"
-            android:layout_marginTop="@dimen/dim_4xl"
-            android:layout_marginEnd="@dimen/dim_xl"
-            android:layout_marginBottom="@dimen/dim_7xl"
-            >
+            <LinearLayout
+                android:id="@+id/Linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_seller_commission_tv_text_rv"
+                android:layout_marginStart="@dimen/dim_xl"
+                android:layout_marginTop="@dimen/dim_4xl"
+                android:layout_marginEnd="@dimen/dim_xl"
+                android:layoutDirection="rtl"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/user_order_name"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="الراجحي:5656651"
-            android:layout_marginVertical="@dimen/dim_s"/>
+                <TextView
+                    android:id="@+id/list_seller_commission_tv_restuantsales_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/restaurant_sales" />
 
-        <TextView
-            android:id="@+id/user_order_order"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="الاهلي:454554454"
-            android:layout_marginVertical="@dimen/dim_s"
-            />
+                <TextView
+                    android:id="@+id/list_seller_commission_tv_appcommission_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/app_commission"
 
-        <TextView
-            android:id="@+id/user_order_price"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="باسم سفرة"
-            android:gravity="center"
-            android:layout_marginVertical="@dimen/dim_s"
-            />
-        </LinearLayout>
-    </RelativeLayout>
+
+                    />
+
+                <TextView
+                    android:id="@+id/list_seller_commission_tv_paid_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/what_has_been_paid"
+
+                    />
+
+                <TextView
+                    android:id="@+id/list_seller_commission_tv_residual_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/residual"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/Linear2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Linear"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/dim_xl"
+                android:layout_marginTop="@dimen/dim_4xl"
+                android:layout_marginEnd="@dimen/dim_xl"
+                android:layout_marginBottom="@dimen/dim_7xl"
+                android:layoutDirection="rtl"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/user_order_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dim_s"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="الراجحي:5656651" />
+
+                <TextView
+                    android:id="@+id/user_order_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dim_s"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="الاهلي:454554454" />
+
+                <TextView
+                    android:id="@+id/user_order_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/dim_s"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="باسم سفرة" />
+            </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

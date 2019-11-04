@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.example.mustafa.sofraNew.R;
 import com.example.mustafa.sofraNew.adapter.ClientOrderAdapter;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.listoforders.ListOfOrders;
-import com.example.mustafa.sofraNew.data.model.listoforders.OrdersData;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.order.listOfOrders.ListOfOrders;
+import com.example.mustafa.sofraNew.data.models.order.listOfOrders.OrdersData;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.USER_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.USER_API_TOKEN;
 
 
 /**
@@ -42,7 +42,6 @@ public class CurrentOrderFragment extends Fragment {
     RecyclerView FragmentClientCurrentOrderRecycler;
     Unbinder unbinder;
     private String Type="current";
-    private String api_token="";
     private List<OrdersData> client_order_data=new ArrayList<>();
     private API ApiServices;
 
@@ -58,7 +57,6 @@ public class CurrentOrderFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_current_user_order, container, false);
         unbinder = ButterKnife.bind(this, view);
         ApiServices=RetrofitClient.getClient().create(API.class);
-        api_token=SharedPreferencesManger.LoadData(getActivity(),USER_API_TOKEN);
         getCurrentOrder();
         setupRecycler();
         return view;
@@ -71,38 +69,29 @@ public class CurrentOrderFragment extends Fragment {
     }
 
     private void getCurrentOrder() {
-
-
-        ApiServices.getClientOrder("HRbqKFSaq5ZpsOKITYoztpFZNylmzL9elnlAThxZSZ52QWqVBIj8Rdq7RhoB",Type,1).enqueue(new Callback<ListOfOrders>() {
+        ApiServices.getClientOrder(SharedPreferencesManger.LoadData(getActivity(),USER_API_TOKEN),Type,1).enqueue(new Callback<ListOfOrders>() {
             @Override
             public void onResponse(Call<ListOfOrders> call, Response<ListOfOrders> response) {
 
                 Toast.makeText(getActivity(), response.message(), Toast.LENGTH_SHORT).show();
-
                 try {
-
                     if (response.body().getStatus()==1) {
-
-                        List<OrdersData> clientOrderData = response.body().getData().getData();
-                        client_order_data.addAll(clientOrderData);
+                        client_order_data.addAll(response.body().getData().getData());
                         ClientOrderAdapter adapter=new ClientOrderAdapter(getActivity(),getActivity(),client_order_data,Type);
                         FragmentClientCurrentOrderRecycler.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
-
                     }
 
                 }catch (Exception e){
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<ListOfOrders> call, Throwable t) {
 
             }
         });
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

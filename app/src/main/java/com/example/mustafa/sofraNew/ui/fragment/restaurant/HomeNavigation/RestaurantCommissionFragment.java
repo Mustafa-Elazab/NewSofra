@@ -1,6 +1,7 @@
 package com.example.mustafa.sofraNew.ui.fragment.restaurant.HomeNavigation;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,8 +12,8 @@ import android.widget.Toast;
 
 
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurantcommissions.RestaurantCommissions;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.rest.restaurantCommissions.RestaurantCommissions;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 
@@ -23,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_API_TOKEN;
 
 
 /**
@@ -51,56 +52,39 @@ public class RestaurantCommissionFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurant_commission, container, false);
         unbinder = ButterKnife.bind(this, view);
-
         ApiServices= RetrofitClient.getClient().create(API.class);
-
         GetAPiData();
         return view;
     }
 
     private void GetAPiData() {
-
-        String api_token = SharedPreferencesManger.LoadData(getActivity(), RESTURANT_API_TOKEN);
-
+        String api_token = SharedPreferencesManger.LoadData(getActivity(),RESTURANT_API_TOKEN);
         ApiServices.restaurantcommissions(api_token).enqueue(new Callback<RestaurantCommissions>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<RestaurantCommissions> call, Response<RestaurantCommissions> response) {
-
                 try {
-
                     if (response.body().getStatus()==1) {
-
-
                         listSellerCommissionTvRestuantsalesRv.setText("مبيعات المطعم :"+response.body().getData().getTotal());
                         listSellerCommissionTvAppcommissionRv.setText("عمولات التطبيق :"+response.body().getData().getCommission());
                         listSellerCommissionTvPaidRv.setText("ماتم سداده :"+response.body().getData().getPayments());
                         listSellerCommissionTvResidualRv.setText("المتبقي :"+response.body().getData().getNetCommissions());
-
-
                     }
-
                 }catch (Exception e){
-
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-
-
             }
-
             @Override
             public void onFailure(Call<RestaurantCommissions> call, Throwable t) {
 
             }
         });
-
-
     }
 
     @Override

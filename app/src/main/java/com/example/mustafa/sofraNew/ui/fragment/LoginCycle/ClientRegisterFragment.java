@@ -15,21 +15,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.cities.Cities;
-import com.example.mustafa.sofraNew.data.model.clientsignup.ClientSignUp;
-import com.example.mustafa.sofraNew.data.model.regions.Regions;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.client.clientData.Client;
+import com.example.mustafa.sofraNew.data.models.general.generalResponse.GeneralResponse;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
-import com.example.mustafa.sofraNew.helper.HelperMethods;
 import com.example.mustafa.sofraNew.ui.activity.ClientActivity;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.AlbumFile;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -95,9 +91,9 @@ public class ClientRegisterFragment extends Fragment {
 
     private void getCities() {
 
-        ApiServices.getCities().enqueue(new Callback<Cities>() {
+        ApiServices.getCities().enqueue(new Callback<GeneralResponse>() {
             @Override
-            public void onResponse(Call<Cities> call, Response<Cities> response) {
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
 
                 try {
 
@@ -108,10 +104,10 @@ public class ClientRegisterFragment extends Fragment {
                         names.add(getString(R.string.city));
                         city_ids.add(0);
 
-                        for (int i = 0; i < response.body().getData().getData().size(); i++) {
+                        for (int i = 0; i < response.body().getData().size(); i++) {
 
-                            names.add(response.body().getData().getData().get(i).getName());
-                            city_ids.add(response.body().getData().getData().get(i).getId());
+                            names.add(response.body().getData().get(i).getName());
+                            city_ids.add(response.body().getData().get(i).getId());
 
                         }
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
@@ -143,7 +139,7 @@ public class ClientRegisterFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Cities> call, Throwable t) {
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
 
             }
         });
@@ -151,9 +147,9 @@ public class ClientRegisterFragment extends Fragment {
 
     private void getRegoins(Integer city_id) {
 
-        ApiServices.getRegions(city_id).enqueue(new Callback<Regions>() {
+        ApiServices.getRegions(city_id).enqueue(new Callback<GeneralResponse>() {
             @Override
-            public void onResponse(Call<Regions> call, Response<Regions> response) {
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
 
                 try {
 
@@ -165,10 +161,10 @@ public class ClientRegisterFragment extends Fragment {
                         regions_names.add(getString(R.string.region));
                         regions_ids.add(0);
 
-                        for (int i = 0; i < response.body().getData().getData().size(); i++) {
+                        for (int i = 0; i < response.body().getData().size(); i++) {
 
-                            regions_names.add(response.body().getData().getData().get(i).getName());
-                            regions_ids.add(response.body().getData().getData().get(i).getId());
+                            regions_names.add(response.body().getData().get(i).getName());
+                            regions_ids.add(response.body().getData().get(i).getId());
                         }
 
                         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,regions_names);
@@ -201,7 +197,7 @@ public class ClientRegisterFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Regions> call, Throwable t) {
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
 
             }
         });
@@ -217,12 +213,9 @@ public class ClientRegisterFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.Fragment_client_register_img_profile:
-
                 GetImage();
                 break;
             case R.id.Fragment_client_register_btn_continue:
-
-
                 CheckVariables();
                 break;
         }
@@ -238,16 +231,22 @@ public class ClientRegisterFragment extends Fragment {
 
         if (TextUtils.isEmpty(client_name)) {
             Toast.makeText(getActivity(), "name is Requird.", Toast.LENGTH_SHORT).show();
+            return;
         } else if (TextUtils.isEmpty(client_email)) {
             Toast.makeText(getActivity(), "Email is Requird.", Toast.LENGTH_SHORT).show();
+            return;
         } else if (TextUtils.isEmpty(client_phone)) {
             Toast.makeText(getActivity(), "Phone is Requird.", Toast.LENGTH_SHORT).show();
+            return;
         } else if (TextUtils.isEmpty(client_password)) {
             Toast.makeText(getActivity(), "Password is Requird.", Toast.LENGTH_SHORT).show();
+            return;
         } else if (TextUtils.isEmpty(client_confirm)) {
             Toast.makeText(getActivity(), "Password is Requird.", Toast.LENGTH_SHORT).show();
+            return;
         } else if (!TextUtils.equals(client_password, client_confirm)) {
             Toast.makeText(getActivity(), "Password Dosen't Match", Toast.LENGTH_SHORT).show();
+            return;
         } else {
 
             OnRegister();
@@ -272,17 +271,15 @@ public class ClientRegisterFragment extends Fragment {
         ApiServices.onClientRegister(convertToRequestBody(client_name), convertToRequestBody(client_email)
                 , convertToRequestBody(client_password), convertToRequestBody(client_confirm), convertToRequestBody(client_phone)
                 , convertToRequestBody(City_name), convertToRequestBody(String.valueOf(Region_id)),
-                convertFileToMultipart(ImagesFiles.get(0).getPath(), "photo")).enqueue(new Callback<ClientSignUp>() {
+                convertFileToMultipart(ImagesFiles.get(0).getPath(), "profile_image")).enqueue(new Callback<Client>() {
             @Override
-            public void onResponse(Call<ClientSignUp> call, Response<ClientSignUp> response) {
-
+            public void onResponse(Call<Client> call, Response<Client> response) {
                 Toast.makeText(getActivity(), response.message(), Toast.LENGTH_SHORT).show();
-
                 try {
-
                     if (response.body().getStatus() == 1) {
                         Toast.makeText(getActivity(), "Account Created Sucessfully !", Toast.LENGTH_SHORT).show();
                         SharedPreferencesManger.SaveData(getActivity(), "USER_API_TOKEN", response.body().getData().getApiToken());
+                        SharedPreferencesManger.SaveData(getActivity(), "USER_PASSWORD",client_password);
                         Intent intent=new Intent(getActivity(),ClientActivity.class);
                         getActivity().startActivity(intent);
                         getActivity().finish();
@@ -295,7 +292,7 @@ public class ClientRegisterFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ClientSignUp> call, Throwable t) {
+            public void onFailure(Call<Client> call, Throwable t) {
 
             }
         });
@@ -303,23 +300,15 @@ public class ClientRegisterFragment extends Fragment {
     }
 
     private void GetImage() {
-
-
         Action<ArrayList<AlbumFile>> action = new Action<ArrayList<AlbumFile>>() {
-
             @Override
-
             public void onAction(@NonNull ArrayList<AlbumFile> result) {
-
                 // TODO accept the result.
                 ImagesFiles.clear();
                 ImagesFiles.addAll(result);
                 onLoadImageFromUrl(FragmentclientRegisterImgProfile, ImagesFiles.get(0).getPath(), getActivity());
-
             }
-
         };
-
         openAlbum(1, getActivity(), ImagesFiles, action);
     }
 }

@@ -9,13 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.restaurantreviews.Review_Data;
-import com.example.mustafa.sofraNew.helper.HelperMethods;
-import com.example.mustafa.sofraNew.ui.fragment.Mutual.About_AppFragment;
-import com.example.mustafa.sofraNew.ui.fragment.Mutual.Contact_UsFragment;
+import com.example.mustafa.sofraNew.data.models.rest.restaurantReview.RestaurantReviewData;
+
 
 import java.util.List;
 
@@ -23,11 +20,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder> {
-    private final List<Review_Data> reviews_data;
+    private List<RestaurantReviewData> reviews_data;
     private Context context;
     private Activity activity;
 
-    public ReviewAdapter(Activity activity, Context context, List<Review_Data> reviewData) {
+    public ReviewAdapter(Activity activity, Context context, List<RestaurantReviewData> reviewData) {
         this.activity = activity;
         this.context = context;
         this.reviews_data = reviewData;
@@ -50,10 +47,9 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     private void setData(ViewHolder holder, int position) {
 
-
-      /*  holder.listReviewName.setText(reviews_data.get(position).getClient().getName());
+        holder.listReviewName.setText(reviews_data.get(position).getClient().getData().getUser().getName());
         holder.listReviewText.setText(reviews_data.get(position).getComment());
-        switch (reviews_data.get(position).getRestaurant().getRate()) {
+        switch (reviews_data.get(position).getRestaurant().getData().getData().getRate()) {
             case 1:
                 holder.listReviewFace.setImageResource(R.drawable.ic_face_very_sad);
                 break;
@@ -72,10 +68,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
             case 5:
                 holder.listReviewFace.setImageResource(R.drawable.ic_face_very_happy);
 
-                break;
-        }
-
-*/
+                break; }
     }
 
 
@@ -85,7 +78,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return reviews_data !=null?reviews_data.size():0;
+        return reviews_data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

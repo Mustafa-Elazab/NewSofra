@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.contact.Contact;
+import com.example.mustafa.sofraNew.data.models.general.contactUs.ContactUs;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -136,9 +136,9 @@ public class Contact_UsFragment extends Fragment {
         } else {
 
 
-            ApiServices.onContact(name,email,phone,Type,content).enqueue(new Callback<Contact>() {
+            ApiServices.onContact(name,email,phone,Type,content).enqueue(new Callback<ContactUs>() {
                 @Override
-                public void onResponse(Call<Contact> call, Response<Contact> response) {
+                public void onResponse(Call<ContactUs> call, Response<ContactUs> response) {
 
                     try {
                         if (response.body().getStatus()==1) {
@@ -154,12 +154,10 @@ public class Contact_UsFragment extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<Contact> call, Throwable t) {
+                public void onFailure(Call<ContactUs> call, Throwable t) {
 
                 }
             });
         }
-
-
     }
 }

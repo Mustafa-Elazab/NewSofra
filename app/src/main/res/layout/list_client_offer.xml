@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dim_12xl"
         android:layout_marginStart="@dimen/dim_m"
         android:layout_marginTop="@dimen/dim_m"
-        android:background="@drawable/shape_layout_border"
         android:layout_toStartOf="@id/list_Resturant_offer_img_rv"
-        >
-
+        android:background="@drawable/shape_layout_border">
 
         <TextView
             android:id="@+id/list_Client_offer_tv_text"
@@ -26,16 +26,14 @@
             android:id="@+id/list_Client_offer_btn_send"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dim_2xl"
-            android:background="@drawable/shape_btn_splash"
-            android:text="@string/call"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt_size_xl"
-           android:layout_below="@id/list_Client_offer_tv_text"
+            android:layout_below="@id/list_Client_offer_tv_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dim_l"
-
-            />
-
+            android:background="@drawable/shape_btn_splash"
+            android:text="@string/detail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_l"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -43,10 +41,9 @@
         android:layout_width="@dimen/dim_9xl"
         android:layout_height="@dimen/dim_9xl"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="-20dp"
         android:layout_marginTop="@dimen/dim_l"
         android:layout_marginEnd="0dp"
-        android:src="@drawable/reslogo"
         android:background="@drawable/shape_rounded_all_circle"
-        />
+        android:src="@drawable/reslogo" />
 </RelativeLayout>

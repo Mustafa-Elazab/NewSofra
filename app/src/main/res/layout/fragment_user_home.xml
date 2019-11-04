@@ -77,6 +77,6 @@
         android:layout_marginStart="@dimen/dim_l"
         android:layout_marginEnd="@dimen/dim_l"
         android:layout_marginTop="@dimen/dim_m"
-
+        android:layout_marginBottom="@dimen/dim_m"
         ></android.support.v7.widget.RecyclerView>
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 
 
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.restaurantnewitem.RestaurantNewItem;
+import com.example.mustafa.sofraNew.data.models.foodItem.addNewFoodItem.AddNewFoodItem;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -32,8 +33,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.LoadData;
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.LoadData;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_API_TOKEN;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.convertFileToMultipart;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.convertToRequestBody;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.disappearKeypad;
@@ -47,6 +48,7 @@ import static com.example.mustafa.sofraNew.helper.HelperMethods.openAlbum;
 public class RestaurantAddFoodFragment extends Fragment {
 
 
+    public Integer categoryid;
     @BindView(R.id.fragment_resturant_addfood_img_add)
     ImageView fragmentresturantAddfoodImgAdd;
     @BindView(R.id.fragment_resturant_addfood_ed_add_foodname)
@@ -62,11 +64,10 @@ public class RestaurantAddFoodFragment extends Fragment {
     private ArrayList<AlbumFile> ImagesFiles = new ArrayList<>();
     @BindView(R.id.relative_write)
     RelativeLayout relativeWrite;
-
-
     Unbinder unbinder;
     private API ApiServices;
     private String ImageUri;
+
 
     public RestaurantAddFoodFragment() {
         // Required empty public constructor
@@ -79,8 +80,6 @@ public class RestaurantAddFoodFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurant_addfood, container, false);
         unbinder = ButterKnife.bind(this, view);
-
-
         ApiServices = RetrofitClient.getClient().create(API.class);
         return view;
     }
@@ -98,14 +97,10 @@ public class RestaurantAddFoodFragment extends Fragment {
                 getGallayImage();
                 break;
             case R.id.fragment_resturant_addfood_btn_add_food:
-
                 CheckVariable();
-
                 break;
             case R.id.relative_write:
-
                 disappearKeypad(getActivity(), getView());
-
                 break;
         }
     }
@@ -130,45 +125,37 @@ public class RestaurantAddFoodFragment extends Fragment {
         } else if (Food_OnSale.isEmpty()) {
             Toast.makeText(getActivity(), "FoodOnSalle Is Requird..", Toast.LENGTH_SHORT).show();
         } else {
-
             AddNewFood(Food_Name, Food_Discrp, Food_Price, Food_ReadyForGo, Food_OnSale);
         }
 
     }
 
     private void AddNewFood(String food_name, String food_discrp, String food_price, String food_readyForGo, String food_onSale) {
-
         String Api_token=LoadData(getActivity(),RESTURANT_API_TOKEN);
-
+        String category_id=String.valueOf(categoryid);
         ApiServices.onResturantNewItem(convertToRequestBody(food_discrp),convertToRequestBody(food_price),
                 convertToRequestBody(food_readyForGo),convertToRequestBody(food_name),
-                convertToRequestBody(Api_token),convertFileToMultipart(ImagesFiles.get(0).getPath(), "photo")
-        ).enqueue(new Callback<RestaurantNewItem>() {
+                convertToRequestBody(Api_token),convertFileToMultipart(ImagesFiles.get(0).getPath(), "photo"),
+                convertToRequestBody(food_onSale),convertToRequestBody(category_id)).enqueue(new Callback<AddNewFoodItem>() {
             @Override
-            public void onResponse(Call<RestaurantNewItem> call, Response<RestaurantNewItem> response) {
+            public void onResponse(Call<AddNewFoodItem> call, Response<AddNewFoodItem> response) {
                 Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
-
                 try {
-
                     if (response.body().getStatus() == 1) {
-
-
                         Toast.makeText(getActivity(), "Order is Uploaded", Toast.LENGTH_SHORT).show();
                         RestaurantHomeFragment restaurantHomeFragment =new RestaurantHomeFragment();
                         HelperMethods.replace(restaurantHomeFragment,getActivity().getSupportFragmentManager(),R.id.Activity_Resturant_Frame_Home,null,null);;
                     }
-
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<RestaurantNewItem> call, Throwable t) {
-
-            }
+            public void onFailure(Call<AddNewFoodItem> call, Throwable t) {
+                Log.i("jkggnkjfd", "onFailure: ");
+                }
         });
-
     }
 
     private void getGallayImage() {
@@ -178,18 +165,14 @@ public class RestaurantAddFoodFragment extends Fragment {
             @Override
 
             public void onAction(@NonNull ArrayList<AlbumFile> result) {
-
                 // TODO accept the result.
                 ImagesFiles.clear();
                 ImagesFiles.addAll(result);
                 onLoadImageFromUrl(fragmentresturantAddfoodImgAdd, ImagesFiles.get(0).getPath(), getActivity());
-
             }
 
         };
 
-        openAlbum(3, getActivity(), ImagesFiles, action);
+        openAlbum(1, getActivity(), ImagesFiles, action);
     }
-
-
 }

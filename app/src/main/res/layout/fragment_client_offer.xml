@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/new_offers"
+        android:textAlignment="center"
+        android:textSize="@dimen/txt_size_xl"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dim_l"
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/Fragment_clientoffer_rv_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/dim_m"
-        ></android.support.v7.widget.RecyclerView>
+        android:layout_below="@id/text"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

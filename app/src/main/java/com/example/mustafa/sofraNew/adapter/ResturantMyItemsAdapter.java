@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.restaurantmyitems.Resturant_My_Items_Data;
+import com.example.mustafa.sofraNew.data.models.foodItem.foodItems.FoodItemsData;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
 import com.example.mustafa.sofraNew.ui.activity.ResturantActivity;
 import com.example.mustafa.sofraNew.ui.fragment.restaurant.order.RestaurantEditOrderFragment;
@@ -26,16 +26,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ResturantMyItemsAdapter extends RecyclerView.Adapter<ResturantMyItemsAdapter.ViewHolder> {
-
-
-
     private Context context;
     private Activity activity;
-    private List<Resturant_My_Items_Data> data;
+    private List<FoodItemsData> data;
 
 
     public ResturantMyItemsAdapter(Context context, Activity activity) {
-
         this.context = context;
         this.activity = activity;
 
@@ -66,15 +62,15 @@ public class ResturantMyItemsAdapter extends RecyclerView.Adapter<ResturantMyIte
                 ResturantActivity Activity = (ResturantActivity) activity;
                 RestaurantEditOrderFragment restaurantEditOrderFragment = new RestaurantEditOrderFragment();
                 restaurantEditOrderFragment.resturantdata = data.get(position);
-                HelperMethods.replace(restaurantEditOrderFragment,Activity.getSupportFragmentManager(),R.id.Activity_Resturant_Frame_Home,null,null);
+                restaurantEditOrderFragment.item_id = data.get(position).getId();
+                HelperMethods.replace(restaurantEditOrderFragment, Activity.getSupportFragmentManager(), R.id.Activity_Resturant_Frame_Home, null, null);
             }
         });
 
         holder.SwipeDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-notifyItemRemoved(position);
+                notifyItemRemoved(position);
             }
         });
     }
@@ -82,7 +78,7 @@ notifyItemRemoved(position);
     private void setData(ViewHolder holder, int position) {
 
         Glide.with(context).load(data.get(position).getPhotoUrl()).into(holder.ListResturantHomeImage);
-        holder.ListResturantOrderHomeMoney.setText("السعر :" + data.get(position).getOfferPrice() + "\n" + " ريال ");
+        holder.ListResturantOrderHomeMoney.setText("السعر :" + data.get(position).getPrice() + "\n" + " ريال ");
         holder.ListResturantOrderHomeContent.setText("وصف الطلب :" + data.get(position).getDescription());
         holder.ListResturantOrderHomeTotal.setText("الاجمالي :" + data.get(position).getPrice() + "\n" + " ريال ");
         holder.ListResturantOrderHomeName.setText("الاسم :" + data.get(position).getName());
@@ -98,7 +94,7 @@ notifyItemRemoved(position);
         return data != null ? data.size() : 0;
     }
 
-    public void sendDataToAdapter(List<Resturant_My_Items_Data> data) {
+    public void sendDataToAdapter(List<FoodItemsData> data) {
 
         this.data = data;
 

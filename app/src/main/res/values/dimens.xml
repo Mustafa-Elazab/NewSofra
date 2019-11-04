@@ -97,4 +97,6 @@
     <dimen name="edittext_48">48dp</dimen>
     <dimen name="slider_sim">400dp</dimen>
     <dimen name="dim_tool_bar">55dp</dimen>
+    <dimen name="dim_image">150dp</dimen>
+
 </resources>

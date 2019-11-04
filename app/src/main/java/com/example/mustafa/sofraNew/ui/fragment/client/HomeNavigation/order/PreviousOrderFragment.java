@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,9 @@ import android.widget.Toast;
 
 import com.example.mustafa.sofraNew.R;
 import com.example.mustafa.sofraNew.adapter.ClientOrderAdapter;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.listoforders.ListOfOrders;
-import com.example.mustafa.sofraNew.data.model.listoforders.OrdersData;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.order.listOfOrders.ListOfOrders;
+import com.example.mustafa.sofraNew.data.models.order.listOfOrders.OrdersData;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -30,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.USER_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.USER_API_TOKEN;
 
 
 /**
@@ -74,7 +73,7 @@ public class PreviousOrderFragment extends Fragment {
     private void getCurrentOrder() {
 
 
-        ApiServices.getClientOrder("HRbqKFSaq5ZpsOKITYoztpFZNylmzL9elnlAThxZSZ52QWqVBIj8Rdq7RhoB", Type, 1).enqueue(new Callback<ListOfOrders>() {
+        ApiServices.getClientOrder(SharedPreferencesManger.LoadData(getActivity(),USER_API_TOKEN), Type, 1).enqueue(new Callback<ListOfOrders>() {
             @Override
             public void onResponse(Call<ListOfOrders> call, Response<ListOfOrders> response) {
 
@@ -83,7 +82,6 @@ public class PreviousOrderFragment extends Fragment {
                 try {
 
                     if (response.body().getStatus() == 1) {
-
                         List<OrdersData> clientOrderData = response.body().getData().getData();
                         Toast.makeText(getActivity(), clientOrderData.toString(), Toast.LENGTH_SHORT).show();
                         client_order_data.addAll(clientOrderData);

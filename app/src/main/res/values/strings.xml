@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sofra</string>
+    <string name="app_name">سفرة</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -12,18 +12,18 @@
     <string name="market_image">صورة المتجر</string>
     <string name="sign">تسجيل</string>
     <string name="name">الاسم</string>
-    <string name="title_client">Client</string>
+    <string name="title_client">العميل</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="previos_order">Previous Order</string>
-    <string name="current_order">Current Order</string>
-    <string name="menu">Menu</string>
-    <string name="comment">Comment</string>
-    <string name="info">Info</string>
+    <string name="title_notifications">الاشعارات</string>
+    <string name="previos_order">الطلبات السابقة</string>
+    <string name="current_order">الطلبات الحالية</string>
+    <string name="menu">قائمة الطعام</string>
+    <string name="comment">التعليقات و التقييم</string>
+    <string name="info">معلومات المتجر</string>
     <string name="add_rating">اختار تقييمك</string>
     <string name="choose_rate">اختا تقيمك</string>
-    <string name="title_resturant">Resturant</string>
+    <string name="title_resturant">عنوان المطعم</string>
     <string name="more">المزيد</string>
     <string name="offer">العروض</string>
     <string name="my_offer">عروضي</string>
@@ -31,6 +31,8 @@
     <string name="aboutapp">عن التطبيق</string>
     <string name="exit">الخروج</string>
     <string name="do_you_want_to_exit">هل تريد الخروج ؟</string>
+    <string name="dont_have_account">ليس لديك حساب ؟</string>
+    <string name="press_here">اضغط هنا</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="message">الرساله</string>
@@ -73,4 +75,11 @@
     <string name="confirm_password">تأكيد الرقم السري</string>
     <string name="city">المدينه</string>
     <string name="region">الحي</string>
+    <string name="category">الصنف</string>
+    <string name="categories">التصنيفات</string>
+    <string name="change_password">تغير كلمة المرور</string>
+    <string name="detail">التفاصيل</string>
+    <string name="offer_detail">تفاصيل العرض</string>
+    <string name="exp_desert">مثال : حلويات</string>
+
 </resources>

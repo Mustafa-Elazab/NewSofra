@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="350dp"
@@ -11,29 +11,26 @@
         android:layout_marginEnd="@dimen/dim_m"
         android:background="@drawable/shape_layout_border">
 
-
         <TextView
             android:id="@+id/list_user_offer_tv_rv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dim_xl"
             android:text="دجاج كنتاكي"
-            android:textSize="@dimen/txt_size_ll"
-            android:layout_centerHorizontal="true"
-            />
+            android:textSize="@dimen/txt_size_ll" />
 
         <Button
             android:id="@+id/list_user_offer_btn_rv"
             android:layout_width="@dimen/dim_18xl"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_btn_splash"
             android:layout_below="@id/list_user_offer_tv_rv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dim_l"
+            android:background="@drawable/shape_btn_splash"
             android:text="@string/get_it_now"
-            android:textSize="@dimen/txt_size_m"
             android:textColor="@color/white"
-            />
+            android:textSize="@dimen/txt_size_m" />
 
     </RelativeLayout>
 
@@ -46,4 +43,5 @@
         android:layout_marginTop="@dimen/dim_l"
         android:layout_marginEnd="0dp"
         android:src="@drawable/reslogo" />
+
 </RelativeLayout>

@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:layout_margin="@dimen/dim_m"
     android:background="@drawable/shape_layout_border"
-    android:layoutDirection="rtl"
-    android:layout_margin="@dimen/dim_m">
+    android:layoutDirection="rtl">
 
+    <TextView
+        android:id="@+id/list_review_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:paddingStart="@dimen/dim_m"
+        android:text="مصطفي العزب"
+        android:textSize="@dimen/txt_size_m" />
 
+    <TextView
+        android:id="@+id/list_review_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/list_review_name"
+        android:layout_marginTop="@dimen/dim_s"
+        android:layout_marginBottom="@dimen/dim_ss"
+        android:layout_toStartOf="@id/list_review_face"
+        android:maxLines="2"
+        android:paddingStart="@dimen/dim_s"
+        android:paddingEnd="@dimen/dim_s"
+        android:text="مطعم زبالة واكله يقرف الكلب"
+        android:textSize="@dimen/txt_size_m"
+        android:textStyle="bold" />
 
-
-        <TextView
-            android:id="@+id/list_review_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="مصطفي العزب"
-            android:textSize="@dimen/txt_size_m"
-            android:layout_marginStart="@dimen/dim_m"
-            android:layout_marginEnd="@dimen/dim_m"
-            android:paddingStart="@dimen/dim_m"
-            android:layout_marginTop="@dimen/dim_m"
-            />
-
-        <TextView
-            android:id="@+id/list_review_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="مطعم زبالة واكله يقرف الكلب"
-            android:layout_below="@id/list_review_name"
-            android:textSize="@dimen/txt_size_m"
-            android:textStyle="bold"
-            android:paddingEnd="@dimen/dim_s"
-            android:paddingStart="@dimen/dim_s"
-            android:layout_marginTop="@dimen/dim_s"
-            android:layout_marginBottom="@dimen/dim_ss"
-            android:layout_toStartOf="@id/list_review_face"
-            android:maxLines="2"/>
-
-        <ImageView
-            android:id="@+id/list_review_face"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/ic_face_emoji"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/dim_l"
-            />
+    <ImageView
+        android:id="@+id/list_review_face"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dim_l"
+        android:src="@drawable/ic_face_emoji" />
 
 
 </RelativeLayout>

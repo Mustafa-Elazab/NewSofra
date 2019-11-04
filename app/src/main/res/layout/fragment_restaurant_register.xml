@@ -3,49 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/login_back"
-
-    >
-
-
+    android:layout_height="match_parent"
+    android:background="#b97c9d">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-             android:background="@drawable/loginbackfround"
-            >
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/Fragment_Resturant_register_img_profile"
-                android:layout_width="@dimen/dim_9xl"
-                android:layout_height="@dimen/dim_9xl"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dim_2xl"
-                android:src="@drawable/newuser" />
+            android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/Fragment_Resturant_register_ed_restaurantname"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_Resturant_register_img_profile"
-                android:layout_marginStart="@dimen/dim_m"
-                android:layout_marginTop="@dimen/dim_xl"
-                android:layout_marginEnd="@dimen/dim_m"
-
-
-                >
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_2xl"
+                android:layout_marginEnd="@dimen/dim_l">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_perm_identity_black"
+                    android:drawableEnd="@drawable/ic_perm_identity_white"
                     android:drawablePadding="@dimen/dim_m"
                     android:hint="اسم المطعم"
                     android:imeOptions="actionNext"
@@ -54,7 +36,6 @@
                     android:maxLines="1"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-
                     />
             </android.support.design.widget.TextInputLayout>
 
@@ -63,10 +44,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:layout_below="@id/Fragment_Resturant_register_ed_restaurantname"
-                android:layout_marginStart="@dimen/dim_m"
+                android:layout_marginStart="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
-
+                android:layout_marginEnd="@dimen/dim_l"
                 >
 
                 <android.support.design.widget.TextInputEditText
@@ -82,42 +62,46 @@
                     android:maxLines="1"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-
                     />
             </android.support.design.widget.TextInputLayout>
 
+
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/Fragment_Resturant_register_phone"
+                android:id="@+id/Fragment_seller_register_ed_delivery_time"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_Resturant_register_email"
-                android:layout_marginStart="@dimen/dim_m"
+                android:layout_below="@+id/Fragment_Resturant_register_email"
+                android:layout_marginStart="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m">
+                android:layout_marginEnd="@dimen/dim_l"
+                android:paddingStart="@dimen/dim_m"
+                android:paddingEnd="@dimen/dim_m">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_call_black"
+                    android:drawableEnd="@drawable/ic_access_time_black"
+                    android:drawableRight="@drawable/ic_access_time_black"
                     android:drawablePadding="@dimen/dim_m"
-                    android:hint="الجوال"
+                    android:hint="مدة التوصيل"
                     android:imeOptions="actionNext"
-                    android:inputType="phone"
+                    android:inputType="textEmailAddress"
                     android:lines="1"
                     android:maxLines="1"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:textColorHint="@color/white"
+                    />
             </android.support.design.widget.TextInputLayout>
 
             <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
-                android:layout_below="@id/Fragment_Resturant_register_phone"
-                android:layout_marginStart="@dimen/dim_m"
+                android:layout_below="@id/Fragment_seller_register_ed_delivery_time"
+                android:layout_marginStart="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
+                android:layout_marginEnd="@dimen/dim_l"
                 android:layoutDirection="rtl"
 
                 >
@@ -127,15 +111,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/ic_home_black"
+                    app:srcCompat="@drawable/ic_home_white"
                     tools:ignore="VectorDrawableCompat" />
 
                 <Spinner
                     android:id="@+id/Fragment_Resturant_register_sp_city"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/dim_m"
-                    android:layout_marginEnd="@dimen/dim_m"
+                    android:layout_marginStart="@dimen/dim_l"
+                    android:layout_marginEnd="@dimen/dim_l"
                     android:padding="@dimen/dim_l"
 
                     />
@@ -146,9 +130,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:layout_below="@id/relative"
-                android:layout_marginStart="@dimen/dim_m"
+                android:layout_marginStart="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m"
+                android:layout_marginEnd="@dimen/dim_l"
                 android:layoutDirection="rtl"
 
                 >
@@ -158,17 +142,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/ic_home_black"
+                    app:srcCompat="@drawable/ic_home_white"
                     tools:ignore="VectorDrawableCompat" />
 
                 <Spinner
                     android:id="@+id/Fragment_Resturant_register_sp_block"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/dim_m"
-                    android:layout_marginEnd="@dimen/dim_m"
-                    android:padding="@dimen/dim_l"
-                    />
+                    android:layout_marginStart="@dimen/dim_l"
+                    android:layout_marginEnd="@dimen/dim_l"
+                    android:padding="@dimen/dim_l" />
             </RelativeLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -176,15 +159,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:layout_below="@id/relative2"
-                android:layout_marginStart="@dimen/dim_m"
+                android:layout_marginStart="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m">
+                android:layout_marginEnd="@dimen/dim_l">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_lock_black"
+                    android:drawableEnd="@drawable/ic_lock_white"
                     android:drawablePadding="@dimen/dim_m"
                     android:hint="كلمة المرور"
                     android:imeOptions="actionNext"
@@ -200,9 +183,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:layout_below="@id/Fragment_Resturant_register_ed_password"
-                android:layout_marginStart="@dimen/dim_m"
+                android:layout_marginStart="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_l"
-                android:layout_marginEnd="@dimen/dim_m">
+                android:layout_marginEnd="@dimen/dim_l">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
@@ -210,7 +193,7 @@
                     android:layout_alignStart="@+id/Fragment_Resturant_register_ed_password_confirm"
                     android:layout_alignBottom="@+id/Fragment_Resturant_register_ed_password_confirm"
                     android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/ic_lock_black"
+                    android:drawableEnd="@drawable/ic_lock_white"
                     android:drawablePadding="@dimen/dim_m"
                     android:hint="كلمة المرور"
                     android:imeOptions="actionNext"
@@ -221,16 +204,73 @@
                     android:textColorHint="@color/white" />
             </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/Fragment_seller_register_ed_min"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:layout_below="@+id/Fragment_Resturant_register_ed_password_confirm"
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:paddingStart="@dimen/dim_m"
+                android:paddingEnd="@dimen/dim_m">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:drawableEnd="@drawable/ic_coins_white"
+                    android:drawableRight="@drawable/ic_coins_white"
+                    android:drawablePadding="@dimen/dim_m"
+                    android:hint="الحد الادني للطلب"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/Fragment_seller_register_ed_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_4xl"
+                android:layout_below="@id/Fragment_seller_register_ed_min"
+                android:layout_marginStart="@dimen/dim_l"
+                android:layout_marginTop="@dimen/dim_l"
+                android:layout_marginEnd="@dimen/dim_l"
+                android:paddingStart="@dimen/dim_m"
+                android:paddingEnd="@dimen/dim_m">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:drawableEnd="@drawable/ic_money_bill_wave_alt_solid"
+                    android:drawableRight="@drawable/ic_money_bill_wave_alt_solid"
+                    android:drawablePadding="@dimen/dim_m"
+                    android:hint="رسوم التوصيل"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textSize="@dimen/txt_size_l"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
             <Button
                 android:id="@+id/Fragment_Resturant_register_btn_continue"
                 android:layout_width="@dimen/dim_8xl"
-                android:layout_height="@dimen/dim_2xl"
-                android:layout_below="@id/Fragment_Resturant_register_ed_password_confirm"
+                android:layout_height="@dimen/dim_3xl"
+                android:layout_below="@id/Fragment_seller_register_ed_delivery"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginTop="@dimen/dim_2xl"
-                android:layout_marginEnd="@dimen/dim_m"
-                android:layout_marginBottom="@dimen/dim_xl"
+                android:layout_marginBottom="@dimen/dim_l"
                 android:background="@drawable/shape_btn_splash"
                 android:text="متابعة"
                 android:textColor="@color/white"
@@ -238,4 +278,5 @@
 
         </RelativeLayout>
     </ScrollView>
+
 </RelativeLayout>

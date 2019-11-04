@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurantmyoffers.Restaurant_My_Offers_Data;
-import com.example.mustafa.sofraNew.data.model.restaurantupdateoffer.RestaurantUpdateOffer;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.offer.addNewOffer.AddNewOffer;
+import com.example.mustafa.sofraNew.data.models.offer.offers.OffersData;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -33,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_API_TOKEN;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.convertFileToMultipart;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.convertToRequestBody;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.onLoadImageFromUrl;
@@ -46,7 +46,7 @@ import static com.example.mustafa.sofraNew.helper.HelperMethods.openAlbum;
 public class ResturantEditOfferFragment extends Fragment {
 
 
-    public Restaurant_My_Offers_Data resturantofferdata;
+    public OffersData resturantofferdata;
     @BindView(R.id.fragment_Resturant_Edit_offer_img_Edit)
     ImageView fragmentResturantEditOfferImgEdit;
     @BindView(R.id.fragment_Resturant_Edit_offer_ed_Edit_foodname)
@@ -73,7 +73,6 @@ public class ResturantEditOfferFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_resturant_edit_offer, container, false);
         unbinder = ButterKnife.bind(this, view);
-
         ApiServices = RetrofitClient.getClient().create(API.class);
         getEditData();
 
@@ -83,8 +82,8 @@ public class ResturantEditOfferFragment extends Fragment {
 
                 HelperMethods.dateDialog(fragmentResturantEditOfferTvFromDate, getActivity());
                 datefrom = fragmentResturantEditOfferTvFromDate.getText().toString();
-                if(datefrom.isEmpty()){
-                    datefrom=resturantofferdata.getCreatedAt();
+                if (datefrom.isEmpty()) {
+                    datefrom = resturantofferdata.getCreatedAt();
                 }
             }
         });
@@ -92,11 +91,10 @@ public class ResturantEditOfferFragment extends Fragment {
         fragmentResturantEditOfferTvToDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 HelperMethods.dateDialog(fragmentResturantEditOfferTvToDate, getActivity());
                 dateto = fragmentResturantEditOfferTvToDate.getText().toString();
-                if(dateto.isEmpty()){
-                    dateto=resturantofferdata.getEndingAt();
+                if (dateto.isEmpty()) {
+                    dateto = resturantofferdata.getEndingAt();
                 }
             }
         });
@@ -126,22 +124,16 @@ public class ResturantEditOfferFragment extends Fragment {
         String api_token = SharedPreferencesManger.LoadData(getActivity(), RESTURANT_API_TOKEN);
 
         if (offer_name.isEmpty()) {
-
             offer_name = fragmentResturantEditOfferEdEditFoodname.getEditText().getHint().toString();
-
         } else if (offer_discription.isEmpty()) {
-
             offer_discription = fragmentResturantEditOfferEdEditFooddiscription.getEditText().getHint().toString();
-
         } else {
-
-
             ApiServices.onRestaurantEditOffer(convertToRequestBody(offer_discription), convertToRequestBody(String.valueOf(100)),
                     convertToRequestBody(datefrom), convertToRequestBody(offer_name), convertFileToMultipart(ImagesFiles.get(0).getPath(), "photo"),
                     convertToRequestBody(dateto), convertToRequestBody(api_token),
-                    convertToRequestBody(String.valueOf(99))).enqueue(new Callback<RestaurantUpdateOffer>() {
+                    convertToRequestBody(String.valueOf(99))).enqueue(new Callback<AddNewOffer>() {
                 @Override
-                public void onResponse(Call<RestaurantUpdateOffer> call, Response<RestaurantUpdateOffer> response) {
+                public void onResponse(Call<AddNewOffer> call, Response<AddNewOffer> response) {
 
                     String message = response.message();
                     Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
@@ -150,25 +142,18 @@ public class ResturantEditOfferFragment extends Fragment {
                             Toast.makeText(getActivity(), "Offer is Edited", Toast.LENGTH_SHORT).show();
                             RestaurantOffersFragment restaurantOffersFragment = new RestaurantOffersFragment();
                             HelperMethods.replace(restaurantOffersFragment, getActivity().getSupportFragmentManager(), R.id.Activity_Resturant_Frame_Home, null, null);
-
                         }
 
                     } catch (Exception e) {
                         Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
-
                 @Override
-                public void onFailure(Call<RestaurantUpdateOffer> call, Throwable t) {
-
-                }
+                public void onFailure(Call<AddNewOffer> call, Throwable t) {
+                    }
             });
-
-
         }
-
     }
-
     private void getGallayImage() {
 
         Action<ArrayList<AlbumFile>> action = new Action<ArrayList<AlbumFile>>() {
@@ -186,14 +171,13 @@ public class ResturantEditOfferFragment extends Fragment {
 
         };
 
-        openAlbum(3, getActivity(), ImagesFiles, action);
+        openAlbum(1, getActivity(), ImagesFiles, action);
     }
 
     @OnClick({R.id.fragment_Resturant_Edit_offer_img_Edit, R.id.Fragment_Resturant_Edit_offer_btn_Edit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.fragment_Resturant_Edit_offer_img_Edit:
-
                 getGallayImage();
                 break;
             case R.id.Fragment_Resturant_Edit_offer_btn_Edit:

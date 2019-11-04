@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurantresetpassword.RestaurantResetPassword;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.general.resetPassword.ResetPassword;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -29,6 +29,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.support.constraint.Constraints.TAG;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.LoadData;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTAURANT;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.USER_TYPE;
 
 
 /**
@@ -41,6 +44,8 @@ public class ForgetPassword1Fragment extends Fragment {
     TextInputLayout FragmentForget1EdPhone;
     Unbinder unbinder;
     private API ApiServices;
+    private String UserType;
+    private String email;
 
     public ForgetPassword1Fragment() {
         // Required empty public constructor
@@ -54,6 +59,7 @@ public class ForgetPassword1Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forget_password1, container, false);
         unbinder = ButterKnife.bind(this, view);
         ApiServices = RetrofitClient.getClient().create(API.class);
+        UserType = LoadData(getActivity(), USER_TYPE);
         return view;
     }
 
@@ -65,49 +71,77 @@ public class ForgetPassword1Fragment extends Fragment {
 
     @OnClick(R.id.Fragment_forget1_btn_next)
     public void onViewClicked() {
-
         CheckEmail();
-
     }
 
     private void CheckEmail() {
-
-
-        String email = FragmentForget1EdPhone.getEditText().getText().toString();
+        email = FragmentForget1EdPhone.getEditText().getText().toString();
 
         if (email.isEmpty()) {
             Toast.makeText(getActivity(), "Email Requird..", Toast.LENGTH_SHORT).show();
         } else {
-            ApiServices.onResetPasswordResturant(email).enqueue(new Callback<RestaurantResetPassword>() {
-                @Override
-                public void onResponse(Call<RestaurantResetPassword> call, Response<RestaurantResetPassword> response) {
 
-                    try {
+            if (UserType.equals(RESTAURANT)) {
+                RestaurantResetPassword();
+            } else {
 
-                        Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
-                        if (response.body().getStatus() == 1) {
-                            String s = response.body().getData().toString();
+                ClientResetPassword();
+            }
 
+        }
+    }
 
-                            ForgetPassword2Fragment forgetPassword2Fragment = new ForgetPassword2Fragment();
-                            Integer data = response.body().getData().getCode();
-                            SharedPreferencesManger.SaveData(getActivity(), "PIN_CODE_RESTURANT", String.valueOf(data));
-                            Toast.makeText(getActivity(), data, Toast.LENGTH_SHORT).show();
-                            HelperMethods.replace(forgetPassword2Fragment, getActivity().getSupportFragmentManager(), R.id.login_cycle, null, null);
-
-                        }
-
-                    } catch (Exception e) {
-                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+    private void ClientResetPassword() {
+        ApiServices.onResetPasswordClient(email).enqueue(new Callback<ResetPassword>() {
+            @Override
+            public void onResponse(Call<ResetPassword> call, Response<ResetPassword> response) {
+                try {
+                    Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    if (response.body().getStatus() == 1) {
+                        ForgetPassword2Fragment forgetPassword2Fragment = new ForgetPassword2Fragment();
+                        Integer data = response.body().getData().getCode();
+                        SharedPreferencesManger.SaveData(getActivity(), "PIN_CODE_USER", String.valueOf(data));
+                        Toast.makeText(getActivity(), data, Toast.LENGTH_SHORT).show();
+                        HelperMethods.replace(forgetPassword2Fragment, getActivity().getSupportFragmentManager(), R.id.login_cycle, null, null);
                     }
 
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
-                @Override
-                public void onFailure(Call<RestaurantResetPassword> call, Throwable t) {
-                    Log.i(TAG, "onFailure: ");
+            }
+
+            @Override
+            public void onFailure(Call<ResetPassword> call, Throwable t) {
+                Log.i(TAG, "onFailure: ");
+            }
+        });
+    }
+
+    private void RestaurantResetPassword() {
+        ApiServices.onResetPasswordResturant(email).enqueue(new Callback<ResetPassword>() {
+            @Override
+            public void onResponse(Call<ResetPassword> call, Response<ResetPassword> response) {
+                try {
+                    Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    if (response.body().getStatus() == 1) {
+                        String s = response.body().getData().toString();
+                        ForgetPassword2Fragment forgetPassword2Fragment = new ForgetPassword2Fragment();
+                        Integer data = response.body().getData().getCode();
+                        SharedPreferencesManger.SaveData(getActivity(), "PIN_CODE_RESTURANT", String.valueOf(data));
+                        Toast.makeText(getActivity(), data, Toast.LENGTH_SHORT).show();
+                        HelperMethods.replace(forgetPassword2Fragment, getActivity().getSupportFragmentManager(), R.id.login_cycle, null, null);
+                    }
+
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-            });
-        }
+
+            }
+            @Override
+            public void onFailure(Call<ResetPassword> call, Throwable t) {
+                Log.i(TAG, "onFailure: ");
+            }
+        });
     }
 }

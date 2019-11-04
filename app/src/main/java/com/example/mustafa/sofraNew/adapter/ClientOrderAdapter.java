@@ -9,16 +9,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.listoforders.OrdersData;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.general.publicResponse.PublicResponse;
+import com.example.mustafa.sofraNew.data.models.order.listOfOrders.OrdersData;
+import com.example.mustafa.sofraNew.data.reset.API;
+import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
+import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.USER_API_TOKEN;
 
 public class ClientOrderAdapter extends RecyclerView.Adapter<ClientOrderAdapter.ViewHolder> {
 
@@ -26,6 +36,8 @@ public class ClientOrderAdapter extends RecyclerView.Adapter<ClientOrderAdapter.
     private final String type;
     private Context context;
     private Activity activity;
+    private API ApiServices;
+    private Integer order_id;
 
     public ClientOrderAdapter(Activity activity, Context context, List<OrdersData> client_order_data, String type) {
         this.activity = activity;
@@ -39,7 +51,7 @@ public class ClientOrderAdapter extends RecyclerView.Adapter<ClientOrderAdapter.
         View view = LayoutInflater.from(context).inflate(R.layout.list_current_order_rv,
                 parent, false);
 
-
+        ApiServices = RetrofitClient.getClient().create(API.class);
         return new ViewHolder(view);
     }
 
@@ -51,20 +63,56 @@ public class ClientOrderAdapter extends RecyclerView.Adapter<ClientOrderAdapter.
 
     private void setData(ViewHolder holder, int position) {
 
-//        holder.orderName.setText(client_order_data.get(position).getItems().get(position).getName());
-//        holder.clientOrder.setText("رقم الطلب : " + client_order_data.get(position).getItems().get(position).getPivot().getOrderId());
-//        holder.orderTotal.setText("الاجمالي : " + client_order_data.get(position).getItems().get(position).getPivot().getPrice());
-//        Glide.with(activity).load(client_order_data.get(position).getItems().get(position).getPhotoUrl()).into(holder.orderimage);
+//       Glide.with(context).load(client_order_data.get(position).getItems().get(position).getPhotoUrl()).into(holder.listClientOrderImage);
+//       holder.listClientOrderName.setText(client_order_data.get(position).getItems().get(position).getName());
+//       holder.listClientOrderOrder.setText("رقم الطلب :" + client_order_data.get(position).getItems().get(position)().getOrderId();
+//       holder.listClientOrderPrice.setText("الاجمالي :" + client_order_data.get(position).getItems().get(position).getPrice());
+//       holder.listClientOrderLocation.setText("العنوان :" + client_order_data.get(position).getAddress());
 
+        if (type.equals("current")) {
+            holder.listClientOrderRefuse.setVisibility(View.GONE);
+        }
+        if (type.equals("new")) {
+            holder.listClientOrderAccept.setVisibility(View.GONE);
+        }
+        if (type.equals("completed")) {
+            holder.listClientOrderAccept.setVisibility(View.GONE);
+            holder.listClientOrderRefuse.setVisibility(View.GONE);
+        }
     }
 
-    private void setAction(ViewHolder holder, int position) {
+    private void setAction(ViewHolder holder, final int position) {
 
-        if (type == "completed") {
 
-            holder.buttonRecive.setVisibility(View.GONE);
-            holder.buttonRefuse.setVisibility(View.GONE);
-        }
+        holder.listClientOrderAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ApiServices.onClientConfirmOrder(order_id, SharedPreferencesManger.LoadData(activity, USER_API_TOKEN)).enqueue(new Callback<PublicResponse>() {
+                    @Override
+                    public void onResponse(Call<PublicResponse> call, Response<PublicResponse> response) {
+                        try {
+                            if (response.body().getStatus() == 1) {
+                                Toast.makeText(context, "Order Confirmed", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<PublicResponse> call, Throwable t) {
+                        t.getMessage();
+                    }
+                });
+            }
+        });
+        holder.listClientOrderRefuse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notifyItemRemoved(position);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -75,18 +123,20 @@ public class ClientOrderAdapter extends RecyclerView.Adapter<ClientOrderAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private View view;
-        @BindView(R.id.circlue)
-        CircleImageView orderimage;
-        @BindView(R.id.restaurant_name)
-        TextView orderName;
-        @BindView(R.id.restaurant_order)
-        TextView clientOrder;
-        @BindView(R.id.restaurant_total)
-        TextView orderTotal;
-        @BindView(R.id.button_rec)
-        Button buttonRecive;
-        @BindView(R.id.button_ref)
-        Button buttonRefuse;
+        @BindView(R.id.list_client_order_Image)
+        PorterShapeImageView listClientOrderImage;
+        @BindView(R.id.list_client_order_name)
+        TextView listClientOrderName;
+        @BindView(R.id.list_client_order_order)
+        TextView listClientOrderOrder;
+        @BindView(R.id.list_client_order_price)
+        TextView listClientOrderPrice;
+        @BindView(R.id.list_client_order_location)
+        TextView listClientOrderLocation;
+        @BindView(R.id.list_client_order_accept)
+        Button listClientOrderAccept;
+        @BindView(R.id.list_client_order_refuse)
+        Button listClientOrderRefuse;
 
         public ViewHolder(View itemView) {
             super(itemView);

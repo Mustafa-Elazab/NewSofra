@@ -57,7 +57,7 @@ public class ClientActivity extends AppCompatActivity {
                 case R.id.navigation_more:
 
                     MoreFragment moreFragment = new MoreFragment();
-                    moreFragment.Type="Client";
+                    moreFragment.Type = "Client";
                     HelperMethods.replace(moreFragment, getSupportFragmentManager(), R.id.Activity_Frame_Home, null, null);
 
                     return true;
@@ -83,13 +83,14 @@ public class ClientActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.Activity_home_img_store:
 
-                Intent Login=new Intent(this,LoginActivity.class);
+                Intent Login = new Intent(this, LoginActivity.class);
                 startActivity(Login);
 
                 break;
             case R.id.Activity_home_img_notifications:
 
-                NotificationsFragment notificationsFragment=new NotificationsFragment();
+                NotificationsFragment notificationsFragment = new NotificationsFragment();
+                notificationsFragment.Type = "Client";
                 HelperMethods.replace(notificationsFragment, getSupportFragmentManager(), R.id.Activity_Frame_Home, null, null);
 
                 break;

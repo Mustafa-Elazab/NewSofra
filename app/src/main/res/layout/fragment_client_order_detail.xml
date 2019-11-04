@@ -21,13 +21,15 @@
             <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
                 android:id="@+id/Fragment_client_order_detail_img_foodimage"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_18xl"
+                android:layout_height="@dimen/logo"
                 android:background="@drawable/shape_rectangel_corner_reduice"
                 android:scaleType="centerCrop"
                 android:src="@drawable/pizzamin"
                 app:siShape="@drawable/shape_rounded_all_rectangle"
-                app:srcCompat="@drawable/ic_perm_identity_black"
-                tools:ignore="VectorDrawableCompat" />
+                app:srcCompat="@drawable/ic_perm_identity_white"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_marginTop="@dimen/dim_l"
+                />
 
 
             <RelativeLayout
@@ -51,8 +53,6 @@
                     android:textSize="@dimen/txt_size_2xl"
 
                     />
-
-
                 <TextView
                     android:id="@+id/Fragment_client_order_detail_tv_fooddiscription"
                     android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                 android:textSize="@dimen/txt_size_m"
                 android:textStyle="bold" />
 
-            <View
+            <ImageView
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -130,7 +130,7 @@
                     android:padding="@dimen/dim_m" />
             </android.support.design.widget.TextInputLayout>
 
-            <View
+            <ImageView
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -213,9 +213,9 @@
                 android:layout_below="@id/linear3"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dim_2xl"
-                android:layout_marginBottom="@dimen/dim_7xl"
+                android:layout_marginBottom="@dimen/dim_l"
                 android:background="@drawable/oral_shape"
-                android:src="@drawable/ic_shopping_cart_black_24dp" />
+                android:src="@drawable/ic_local_grocery_store" />
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

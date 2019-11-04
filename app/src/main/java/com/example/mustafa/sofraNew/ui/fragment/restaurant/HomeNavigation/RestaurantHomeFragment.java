@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.example.mustafa.sofraNew.R;
 import com.example.mustafa.sofraNew.adapter.ResturantMyItemsAdapter;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurantmyitems.RestaurantMyItems;
-import com.example.mustafa.sofraNew.data.model.restaurantmyitems.Resturant_My_Items_Data;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.foodItem.foodItems.FoodItems;
+import com.example.mustafa.sofraNew.data.models.foodItem.foodItems.FoodItemsData;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -33,14 +33,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_API_TOKEN;
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_NAME;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_NAME;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class RestaurantHomeFragment extends Fragment {
 
+    public Integer category_id;
+    public String category_name;
     @BindView(R.id.Fragment_home_resturantname)
     TextView FragmentHomeResturantname;
     @BindView(R.id.Fragment_home_recycler)
@@ -48,8 +50,7 @@ public class RestaurantHomeFragment extends Fragment {
     @BindView(R.id.Fragment_home_addorder)
     FloatingActionButton FragmentHomeAddorder;
     private API ApiServices;
-    private List<Resturant_My_Items_Data> data;
-
+    private List<FoodItemsData> data;
     private ResturantMyItemsAdapter adapter;
     Unbinder unbinder;
     private String api_token = "";
@@ -66,10 +67,9 @@ public class RestaurantHomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurant_home, container, false);
         unbinder = ButterKnife.bind(this, view);
-
         ApiServices = RetrofitClient.getClient().create(API.class);
-        FragmentHomeResturantname.setText(SharedPreferencesManger.LoadData(getActivity(),RESTURANT_NAME));
-
+        FragmentHomeResturantname.setText(category_name);
+        getApiServicesData();
         setRecycler();
         return view;
     }
@@ -81,8 +81,6 @@ public class RestaurantHomeFragment extends Fragment {
         FragmentHomeRecycler.setLayoutManager(manager);
         adapter = new ResturantMyItemsAdapter(getContext(), getActivity());
         FragmentHomeRecycler.setAdapter(adapter);
-
-
     }
 
     @Override
@@ -95,52 +93,37 @@ public class RestaurantHomeFragment extends Fragment {
     public void onViewClicked() {
 
         RestaurantAddFoodFragment restaurantAddFoodFragment = new RestaurantAddFoodFragment();
+        restaurantAddFoodFragment.categoryid=category_id;
         HelperMethods.replace(restaurantAddFoodFragment, getActivity().getSupportFragmentManager(), R.id.Activity_Resturant_Frame_Home, null, null);
-
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        getApiServicesData();
     }
 
     private void getApiServicesData() {
 
         api_token=SharedPreferencesManger.LoadData(getActivity(),RESTURANT_API_TOKEN);
-        ApiServices.restaurantmyitems(api_token, 1)
-                .enqueue(new Callback<RestaurantMyItems>() {
+        ApiServices.restaurantmyitems(api_token,category_id)
+                .enqueue(new Callback<FoodItems>() {
                     @Override
-                    public void onResponse(Call<RestaurantMyItems> call, Response<RestaurantMyItems> response) {
-
-                        Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    public void onResponse(Call<FoodItems> call, Response<FoodItems> response) {
                         try {
-
                             if (response.body().getStatus() == 1) {
-
-                                Log.i("onRes: ", response.body().getData().getData().toString());
-
-
-                                List<Resturant_My_Items_Data> data = response.body().getData().getData();
-                                adapter.sendDataToAdapter(data);
-
+                                List<FoodItemsData> foodItemsData = response.body().getData().getData();
+                                data.addAll(foodItemsData);
+                                adapter.sendDataToAdapter(RestaurantHomeFragment.this.data);
                                 adapter.notifyDataSetChanged();
+
+                                for (int i = 0; i <foodItemsData.size(); i++) {
+                                    Log.i("onResponse",response.body().getData().getData().get(i).getName());
+                                }
                             }
 
                         } catch (Exception e) {
-
                             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-
                     }
-
                     @Override
-                    public void onFailure(Call<RestaurantMyItems> call, Throwable t) {
-
+                    public void onFailure(Call<FoodItems> call, Throwable t) {
+                        Log.i("onFailure",t.getMessage());
                     }
                 });
     }
-
-
 }

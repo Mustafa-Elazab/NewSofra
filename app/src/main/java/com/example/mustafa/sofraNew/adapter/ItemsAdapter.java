@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.Client;
-import com.example.mustafa.sofraNew.data.model.items.Items_Data;
+import com.example.mustafa.sofraNew.data.models.foodItem.foodItems.FoodItemsData;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
 import com.example.mustafa.sofraNew.ui.activity.ClientActivity;
 import com.example.mustafa.sofraNew.ui.fragment.client.HomeNavigation.order.OrderDetailFragment;
@@ -24,11 +23,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
-    private final List<Items_Data> itemsData;
+    private final List<FoodItemsData> itemsData;
     private Context context;
     private Activity activity;
 
-    public ItemsAdapter(Activity activity, Context context, List<Items_Data> itemsData) {
+    public ItemsAdapter(Activity activity, Context context, List<FoodItemsData> itemsData) {
 
         this.activity = activity;
         this.context = context;
@@ -51,6 +50,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
 
     private void setData(ViewHolder holder, int position) {
 
+
         holder.listUserMenuTvOrderName.setText(itemsData.get(position).getName());
         holder.listUserMenuTvOrderPrice.setText(itemsData.get(position).getPrice());
         holder.listUserMenuTvOrderDescription.setText(itemsData.get(position).getDescription());
@@ -63,11 +63,10 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             @Override
             public void onClick(View v) {
 
-                ClientActivity clientActivity=(ClientActivity)activity;
-
-                OrderDetailFragment orderDetailFragment=new OrderDetailFragment();
-                orderDetailFragment.OrderDetailData=itemsData.get(position);
-                HelperMethods.replace(orderDetailFragment,clientActivity.getSupportFragmentManager(),R.id.Activity_Frame_Home,null,null);
+                ClientActivity clientActivity = (ClientActivity) activity;
+                OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
+                orderDetailFragment.OrderDetailData = itemsData.get(position);
+                HelperMethods.replace(orderDetailFragment, clientActivity.getSupportFragmentManager(), R.id.Activity_Frame_Home, null, null);
             }
         });
     }
@@ -87,6 +86,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         TextView listUserMenuTvOrderDescription;
         @BindView(R.id.list_user_menu_tv_order_price)
         TextView listUserMenuTvOrderPrice;
+
         public ViewHolder(View itemView) {
             super(itemView);
             view = itemView;

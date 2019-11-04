@@ -9,18 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
 import com.example.mustafa.sofraNew.adapter.VIEW_PAGER_RESTURANT_ADAPTER;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurants.Restaurants_Data;
-
-import java.util.List;
-
+import com.example.mustafa.sofraNew.data.models.rest.restaurantsData.RestaurantData;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,9 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ResturantHomeFragment extends Fragment {
 
 
-    public Restaurants_Data restaurantsdata;
-    @BindView(R.id.Fragment_resturantinfo_resturant_image)
-    CircleImageView FragmentResturantinfoResturantImage;
+    public RestaurantData restaurantsdata;
     @BindView(R.id.Fragment_resturantinfo_resturant_name)
     TextView FragmentResturantinfoResturantName;
     @BindView(R.id.Fragment_resturantinfo_resturant_tablayout)
@@ -57,11 +49,9 @@ public class ResturantHomeFragment extends Fragment {
 
         FragmentResturantinfoResturantViewpager.setAdapter(
 
-                new VIEW_PAGER_RESTURANT_ADAPTER(getChildFragmentManager(), getActivity()));
+                new VIEW_PAGER_RESTURANT_ADAPTER(getChildFragmentManager(),getActivity()));
 
         FragmentResturantinfoResturantTablayout.setupWithViewPager(FragmentResturantinfoResturantViewpager);
-
-        Glide.with(getActivity()).load(restaurantsdata.getPhotoUrl()).into(FragmentResturantinfoResturantImage);
         FragmentResturantinfoResturantName.setText(restaurantsdata.getName());
         Restaurant_Id = restaurantsdata.getId();
       //  SharedPreferencesManger.RESTURANT_ID=Restaurant_Id;

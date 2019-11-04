@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/Text"
-        android:layout_width="wrap_content"
+        android:id="@+id/text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/new_offers"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:text="عروضي"
         android:layout_marginTop="@dimen/dim_m"
         android:textSize="@dimen/txt_size_l"
-
         />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/Fragment_seller_offers_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/Text"
-        android:layout_marginTop="@dimen/dim_m"
-        ></android.support.v7.widget.RecyclerView>
+        android:layout_below="@+id/text"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m">
+
+    </android.support.v7.widget.RecyclerView>
 
     <Button
         android:id="@+id/Fragment_seller_offers_btn_add"
-        android:layout_width="@dimen/dim_16xl"
+        android:layout_width="@dimen/dim_18xl"
         android:layout_height="@dimen/dim_2xl"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/dim_7xl"
         android:background="@drawable/shape_btn_splash"
+        android:layout_marginBottom="@dimen/dim_l"
         android:text="@string/add_new_offer"
         android:textColor="@color/white"
-
-
-
+        android:textStyle="bold"
+        android:textSize="@dimen/txt_size_m"
         />
-
 </RelativeLayout>

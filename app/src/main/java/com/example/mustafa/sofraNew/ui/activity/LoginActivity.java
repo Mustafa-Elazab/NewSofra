@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RestaurantLoginFragment restaurantLoginFragment = new RestaurantLoginFragment();
-        restaurantLoginFragment.Type="Restaurant";
+        restaurantLoginFragment.Type = getIntent().getStringExtra("type");
         HelperMethods.replace(restaurantLoginFragment, getSupportFragmentManager(), R.id.login_cycle, null, null);
     }
 }

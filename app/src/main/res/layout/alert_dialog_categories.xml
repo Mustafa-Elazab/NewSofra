@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_layout_border">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_layout_border">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/alert_categories_img_category"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_add_black"
+            app:backgroundTint="#fff"
+            android:layout_marginTop="@dimen/dim_l"
+            android:background="@drawable/oral_shape"
+            />
+
+        <EditText
+            android:id="@+id/alert_categories_ed_category"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_below="@id/alert_categories_img_category"
+            android:gravity="center"
+            android:hint="@string/exp_desert"
+            android:background="@drawable/shape_ed_white_rect"
+            android:layout_marginTop="@dimen/dim_l"
+            android:layout_marginStart="@dimen/dim_5xl"
+            android:layout_marginEnd="@dimen/dim_5xl"
+            android:textAlignment="center"
+            android:textSize="@dimen/txt_size_m"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/dim_m"
+            />
+
+        <Button
+            android:id="@+id/alert_categories_btn_category_add"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_below="@id/alert_categories_ed_category"
+            android:gravity="center"
+            android:text="@string/add"
+            android:background="@drawable/shape_btn_call"
+            android:layout_marginTop="@dimen/dim_l"
+            android:layout_marginStart="@dimen/dim_l"
+            android:layout_marginEnd="@dimen/dim_l"
+            android:layout_marginBottom="@dimen/dim_l"
+            android:textAlignment="center"
+            android:textSize="@dimen/txt_size_l"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+</RelativeLayout>

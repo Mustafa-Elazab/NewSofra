@@ -12,8 +12,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.login.Client;
-import com.example.mustafa.sofraNew.data.model.restaurants.Restaurants_Data;
+import com.example.mustafa.sofraNew.data.models.rest.restaurantsData.RestaurantData;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
 import com.example.mustafa.sofraNew.ui.activity.ClientActivity;
 import com.example.mustafa.sofraNew.ui.fragment.client.HomeNavigation.resturant_info.ResturantHomeFragment;
@@ -25,12 +24,12 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.ViewHolder> {
-    private final List<Restaurants_Data> restaurantsdata;
+    private final List<RestaurantData> restaurantsdata;
     private Context context;
     public Activity activity;
     private String opened = "open";
 
-    public RestaurantsAdapter(Context context, Activity activity, List<Restaurants_Data> dataArrayList) {
+    public RestaurantsAdapter(Context context, Activity activity, List<RestaurantData> dataArrayList) {
 
         this.activity = activity;
         this.context = context;
@@ -76,11 +75,10 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ResturantHomeFragment resturantHomeFragment=new ResturantHomeFragment();
 
+                ResturantHomeFragment resturantHomeFragment=new ResturantHomeFragment();
                 resturantHomeFragment.restaurantsdata=restaurantsdata.get(position);
                 ClientActivity clientActivity=(ClientActivity) activity;
-
                 HelperMethods.replace(resturantHomeFragment,clientActivity.getSupportFragmentManager(),R.id.Activity_Frame_Home,null,null);
 
             }

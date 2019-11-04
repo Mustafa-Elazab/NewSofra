@@ -4,46 +4,39 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
-
-
-    <TextView
-        android:id="@+id/Fragment_home_resturantname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="اسم المطعم"
-        android:textSize="@dimen/txt_size_ll"
-        android:textColor="@color/colorAccent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dim_m"
-        />
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/Fragment_home_recycler"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/Fragment_home_resturantname"
-        android:layout_marginTop="@dimen/dim_m"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/Fragment_home_resturantname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dim_s"
+            android:text="khnflnlfglnkgfl"
+            android:textAlignment="center"
+            android:textSize="@dimen/txt_size_l" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/Fragment_home_addorder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dim_7xl"
-        android:layout_marginEnd="@dimen/dim_l"
-        app:srcCompat="@drawable/ic_add_black"
-        app:backgroundTint="@color/white"
-        android:layout_marginRight="@dimen/dim_l"
-        android:layout_alignParentRight="true" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Fragment_home_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/Fragment_home_resturantname"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m">
+        </android.support.v7.widget.RecyclerView>
 
-
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/Fragment_home_addorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dim_l"
+            android:layout_marginBottom="@dimen/dim_l"
+            app:backgroundTint="#fff"
+            android:src="@drawable/ic_add_black_24dp" />
+    </RelativeLayout>
 </RelativeLayout>

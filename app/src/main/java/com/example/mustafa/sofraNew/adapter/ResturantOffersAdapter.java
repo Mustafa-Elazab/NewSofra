@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.model.restaurantmyoffers.Restaurant_My_Offers_Data;
+import com.example.mustafa.sofraNew.data.models.offer.offers.OffersData;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
 import com.example.mustafa.sofraNew.ui.activity.ResturantActivity;
 import com.example.mustafa.sofraNew.ui.fragment.restaurant.offer.ResturantEditOfferFragment;
@@ -30,9 +30,9 @@ public class ResturantOffersAdapter extends RecyclerView.Adapter<ResturantOffers
 
     private Context context;
     private Activity activity;
-    private List<Restaurant_My_Offers_Data> restaurantOffersDataList = new ArrayList<>();
+    private List<OffersData> restaurantOffersDataList = new ArrayList<>();
 
-    public ResturantOffersAdapter(Context context, Activity activity, List<Restaurant_My_Offers_Data> restaurantoffersDataList) {
+    public ResturantOffersAdapter(Context context, Activity activity, List<OffersData> restaurantoffersDataList) {
 
         this.context = context;
         this.activity = activity;
@@ -79,7 +79,7 @@ public class ResturantOffersAdapter extends RecyclerView.Adapter<ResturantOffers
     private void setData(ViewHolder holder, int position) {
 
         holder.listResturantOfferTvRv.setText(restaurantOffersDataList.get(position).getDescription());
-        Glide.with(context).load(restaurantOffersDataList.get(position).getRestaurant().getPhotoUrl()).into(holder.listResturantOfferImgRv);
+        Glide.with(context).load(restaurantOffersDataList.get(position).getPhotoUrl()).into(holder.listResturantOfferImgRv);
     }
 
     private void setAction(ViewHolder holder, int position) {

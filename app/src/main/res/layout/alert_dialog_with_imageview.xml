@@ -99,7 +99,7 @@
             android:layout_marginEnd="@dimen/dim_xl"
             android:background="@drawable/shape_rectangel_corner_reduice"
             android:gravity="start"
-            android:hint="اضف تعليق"
+            android:hint="Ø§Ø¶Ù] ØªØ¹Ù„ÙŠÙ‚"
             android:paddingStart="@dimen/dim_l"
             android:paddingEnd="@dimen/dim_l"
             android:textSize="@dimen/txt_size_ll"

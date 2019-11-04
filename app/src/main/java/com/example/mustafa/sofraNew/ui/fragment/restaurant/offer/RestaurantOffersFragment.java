@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.example.mustafa.sofraNew.R;
 import com.example.mustafa.sofraNew.adapter.ResturantOffersAdapter;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurantmyoffers.RestaurantMyOffers;
-import com.example.mustafa.sofraNew.data.model.restaurantmyoffers.Restaurant_My_Offers_Data;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.offer.offers.Offers;
+import com.example.mustafa.sofraNew.data.models.offer.offers.OffersData;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.data.reset.RetrofitClient;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
@@ -30,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_API_TOKEN;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,7 +42,7 @@ public class RestaurantOffersFragment extends Fragment {
     RecyclerView FragmentSellerOffersRv;
     Unbinder unbinder;
     private API ApiServices;
-    private List<Restaurant_My_Offers_Data> restaurantoffersDataList = new ArrayList<>();
+    private List<OffersData> restaurantoffersDataList = new ArrayList<>();
     private ResturantOffersAdapter adapter;
 
 
@@ -57,7 +57,6 @@ public class RestaurantOffersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurant_offers, container, false);
         unbinder = ButterKnife.bind(this, view);
-
         ApiServices= RetrofitClient.getClient().create(API.class);
         setupRecycler();
         GetDataOffers();
@@ -69,30 +68,21 @@ public class RestaurantOffersFragment extends Fragment {
         String api_token=SharedPreferencesManger.LoadData(getActivity(),RESTURANT_API_TOKEN);
         Toast.makeText(getActivity(), api_token, Toast.LENGTH_SHORT).show();
         ApiServices.restaurantmyoffers(api_token,1).enqueue(
-                new Callback<RestaurantMyOffers>() {
+                new Callback<Offers>() {
                     @Override
-                    public void onResponse(Call<RestaurantMyOffers> call, Response<RestaurantMyOffers> response) {
+                    public void onResponse(Call<Offers> call, Response<Offers> response) {
                         Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
-
                         try {
-
                             if (response.body().getStatus()==1) {
-
                                 restaurantoffersDataList.addAll(response.body().getData().getData());
                                 adapter.notifyDataSetChanged();
-
-
                             }
-
                         }catch (Exception e){
                             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-
-
                     }
-
                     @Override
-                    public void onFailure(Call<RestaurantMyOffers> call, Throwable t) {
+                    public void onFailure(Call<Offers> call, Throwable t) {
 
                     }
                 }
@@ -105,7 +95,6 @@ public class RestaurantOffersFragment extends Fragment {
 
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         HelperMethods.setInitRecyclerViewAsLinearLayoutManager(getActivity(), FragmentSellerOffersRv, manager);
-
         adapter = new ResturantOffersAdapter(getActivity(), getActivity(), restaurantoffersDataList);
         FragmentSellerOffersRv.setAdapter(adapter);
     }
@@ -121,7 +110,5 @@ public class RestaurantOffersFragment extends Fragment {
 
         RestaurantAddOfferFragment sellerAddOfferFragment=new RestaurantAddOfferFragment();
         HelperMethods.replace(sellerAddOfferFragment,getActivity().getSupportFragmentManager(),R.id.Activity_Resturant_Frame_Home,null,null);
-
-
-    }
+        }
 }

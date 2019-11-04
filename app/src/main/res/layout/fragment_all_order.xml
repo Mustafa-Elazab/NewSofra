@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Fragment_client_all_order_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_above="@id/relative"
+       >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        >
+    <TextView
+        android:id="@+id/Fragment_client_all_order_tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_m"
+        android:layout_marginBottom="@dimen/dim_m"
+        android:gravity="center"
+        android:text="المجموع الكلي"
+        android:textAlignment="center"
+        android:textSize="@dimen/txt_size_m" />
+
+    <TextView
+        android:id="@+id/Fragment_client_all_order_tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Fragment_client_all_order_tv_text"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_oval"
+        android:gravity="center"
+        android:text="@string/price"
+        android:textSize="@dimen/txt_size_l" />
+
+    <Button
+        android:id="@+id/Fragment_client_all_order_btn_more"
+        android:layout_width="@dimen/dim_18xl"
+        android:layout_height="@dimen/dim_2xl"
+        android:layout_below="@id/Fragment_client_all_order_tv_price"
+        android:layout_marginStart="@dimen/dim_2xl"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_2xl"
+        android:layout_marginBottom="@dimen/dim_l"
+        android:background="@drawable/shape_btn_splash"
+        android:text="اضافة المزيد"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_m"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Fragment_seller_offers_btn_add"
+        android:layout_width="@dimen/dim_18xl"
+        android:layout_height="@dimen/dim_2xl"
+        android:layout_below="@id/Fragment_client_all_order_tv_price"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_2xl"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_2xl"
+        android:layout_marginBottom="@dimen/dim_l"
+        android:background="@drawable/shape_btn_splash"
+        android:text="تاكيد"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_m"
+        android:textStyle="bold" />
+</RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Fragment_categories_resturantname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dim_m"
+            android:text="@string/categories"
+            android:textAlignment="center"
+            android:textSize="@dimen/txt_size_xl" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Fragment_categories_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/Fragment_categories_resturantname"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m">
+        </android.support.v7.widget.RecyclerView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/Fragment_categories_addorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dim_l"
+            android:layout_marginBottom="@dimen/dim_l"
+            app:backgroundTint="#fff"
+            android:src="@drawable/ic_add_black_24dp" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,6 +1,10 @@
-<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<com.chauthai.swipereveallayout.SwipeRevealLayout
     android:id="@+id/Activity_Item_PsIv_Activity_Swipe_Layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -28,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dim_m"
             android:layout_marginEnd="@dimen/dim_m"
-            app:srcCompat="@drawable/ic_mode_edit"
+            app:srcCompat="@drawable/ic_edit_solid"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageView
@@ -63,7 +67,7 @@
             android:layout_marginBottom="@dimen/dim_s"
             android:background="@drawable/shape_rectangel_corner_reduice"
             app:siShape="@drawable/shape_rounded_all_rectangle"
-            app:srcCompat="@drawable/ic_perm_identity_black"
+            app:srcCompat="@drawable/ic_perm_identity_white"
             tools:ignore="VectorDrawableCompat" />
 
         <LinearLayout
@@ -76,8 +80,9 @@
             android:layout_marginBottom="@dimen/dim_m"
             android:layout_toStartOf="@id/List_Resturant_home_Image"
             android:layout_toEndOf="@id/List_Resturant_order_home_money"
+            android:orientation="vertical"
             android:layoutDirection="rtl"
-            android:orientation="vertical">
+            >
 
             <TextView
                 android:id="@+id/List_Resturant_order_home_name"
@@ -118,4 +123,4 @@
     </RelativeLayout>
 
 </com.chauthai.swipereveallayout.SwipeRevealLayout>
-
+</RelativeLayout>

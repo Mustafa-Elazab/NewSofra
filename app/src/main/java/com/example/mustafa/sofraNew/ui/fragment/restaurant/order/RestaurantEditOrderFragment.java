@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mustafa.sofraNew.R;
-import com.example.mustafa.sofraNew.data.local.SharedPreferencesManger;
-import com.example.mustafa.sofraNew.data.model.restaurantmyitems.Resturant_My_Items_Data;
-import com.example.mustafa.sofraNew.data.model.restaurantupdateitem.RestaurantUpdateItem;
+import com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger;
+import com.example.mustafa.sofraNew.data.models.foodItem.foodItems.FoodItems;
+import com.example.mustafa.sofraNew.data.models.foodItem.foodItems.FoodItemsData;
 import com.example.mustafa.sofraNew.data.reset.API;
 import com.example.mustafa.sofraNew.helper.HelperMethods;
 import com.example.mustafa.sofraNew.ui.fragment.restaurant.HomeNavigation.RestaurantHomeFragment;
@@ -34,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mustafa.sofraNew.data.local.SharedPreferencesManger.RESTURANT_API_TOKEN;
+import static com.example.mustafa.sofraNew.data.local.SharedPreferences.SharedPreferencesManger.RESTURANT_API_TOKEN;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.convertFileToMultipart;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.convertToRequestBody;
 import static com.example.mustafa.sofraNew.helper.HelperMethods.onLoadImageFromUrl;
@@ -47,7 +47,8 @@ import static com.example.mustafa.sofraNew.helper.HelperMethods.openAlbum;
 public class RestaurantEditOrderFragment extends Fragment {
 
 
-    public Resturant_My_Items_Data resturantdata;
+    public FoodItemsData resturantdata;
+    public Integer item_id;
     @BindView(R.id.fragment_resturant_editfood_tv_add)
     TextView fragmentResturantEditfoodTvAdd;
     @BindView(R.id.fragment_resturant_editfood_img_add)
@@ -67,7 +68,7 @@ public class RestaurantEditOrderFragment extends Fragment {
     private ArrayList<AlbumFile> ImagesFiles = new ArrayList<>();
     private API ApiServices;
     Unbinder unbinder;
-    private int item_id;
+
 
     public RestaurantEditOrderFragment() {
 
@@ -94,7 +95,9 @@ public class RestaurantEditOrderFragment extends Fragment {
         fragmentResturantEditfoodEdfoodprice.setHint(resturantdata.getPrice());
         fragmentResturantEditfoodEdfooddiscription.setHint(resturantdata.getDescription());
         fragmentResturantEditfoodEdfoodready.setHint(resturantdata.getPreparingTime());
+//        fragmentResturantEditfoodEdfooddiscount.setHint(resturantdata.getOfferPrice());
         Glide.with(getActivity()).load(resturantdata.getPhotoUrl()).into(fragmentResturantEditfoodImgAdd);
+
 
 
     }
@@ -148,19 +151,14 @@ public class RestaurantEditOrderFragment extends Fragment {
 
             EditOrder(Food_Name, Food_Discrp, Food_Price, Food_ReadyForGo, Food_OnSale);
         }
-
     }
-
     private void EditOrder(String food_name, String food_discrp, String food_price, String food_readyForGo, String food_onSale) {
-
-
-
         ApiServices.onResturantEditItem(convertToRequestBody(food_discrp),convertToRequestBody(food_price),
                 convertToRequestBody(food_readyForGo),convertToRequestBody(food_name),convertFileToMultipart(ImagesFiles.get(0).getPath(), "photo"),
                 convertToRequestBody(String.valueOf(item_id)),convertToRequestBody(SharedPreferencesManger.LoadData(getActivity(),RESTURANT_API_TOKEN))
-        ).enqueue(new Callback<RestaurantUpdateItem>() {
+        ).enqueue(new Callback<FoodItems>() {
             @Override
-            public void onResponse(Call<RestaurantUpdateItem> call, Response<RestaurantUpdateItem> response) {
+            public void onResponse(Call<FoodItems> call, Response<FoodItems> response) {
                 Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
 
                 try {
@@ -170,22 +168,15 @@ public class RestaurantEditOrderFragment extends Fragment {
                         RestaurantHomeFragment restaurantHomeFragment =new RestaurantHomeFragment();
                         HelperMethods.replace(restaurantHomeFragment,getActivity().getSupportFragmentManager(),R.id.Activity_Resturant_Frame_Home,null,null);;
                     }
-
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
-            public void onFailure(Call<RestaurantUpdateItem> call, Throwable t) {
-
+            public void onFailure(Call<FoodItems> call, Throwable t) {
             }
         });
-
-
-    }
-
-
+        }
     private void getGallayImage() {
 
         Action<ArrayList<AlbumFile>> action = new Action<ArrayList<AlbumFile>>() {
@@ -193,7 +184,6 @@ public class RestaurantEditOrderFragment extends Fragment {
             @Override
 
             public void onAction(@NonNull ArrayList<AlbumFile> result) {
-
                 // TODO accept the result.
                 ImagesFiles.clear();
                 ImagesFiles.addAll(result);
@@ -202,8 +192,7 @@ public class RestaurantEditOrderFragment extends Fragment {
             }
 
         };
-
-        openAlbum(3, getActivity(), ImagesFiles, action);
+        openAlbum(1, getActivity(), ImagesFiles, action);
     }
 
 }

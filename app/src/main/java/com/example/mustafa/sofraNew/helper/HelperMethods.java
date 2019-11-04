@@ -38,6 +38,7 @@ import com.yanzhenjie.album.AlbumFile;
 import com.yanzhenjie.album.AlbumLoader;
 import com.yanzhenjie.album.api.widget.Widget;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -67,6 +68,16 @@ public class HelperMethods {
                 .load(URl)
 
                 .into(imageView);
+
+    }
+
+    public static void onLoadCircleImageFromUrl(CircleImageView ImageView, String URl, Context context) {
+
+        Glide.with(context)
+
+                .load(URl)
+
+                .into(ImageView);
 
     }
 

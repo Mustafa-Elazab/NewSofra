@@ -37,7 +37,7 @@
 
             />
 
-        <View
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/black"
@@ -55,7 +55,7 @@
 
             />
 
-        <View
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/black"
@@ -73,7 +73,7 @@
 
             />
 
-        <View
+        <ImageView
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -93,7 +93,25 @@
 
             />
 
-        <View
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/dim_m"
+            />
+        <TextView
+            android:id="@+id/Fragment_Seller_more_tv_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_3xl"
+            android:layout_marginTop="@dimen/dim_m"
+            android:textSize="@dimen/txt_size_l"
+            android:text="@string/change_password"
+            android:drawableStart="@drawable/ic_lock_black"
+            android:drawablePadding="@dimen/dim_l"
+
+            />
+
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/black"

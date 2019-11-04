@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
 
     <item>
         <shape android:shape="rectangle">
-            <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
-            <stroke
-                android:width="24dp"
-                android:color="#E2E1E1" />
+            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <stroke android:color="@color/gray" android:width="@dimen/dim_xl" />
             <corners android:radius="4dp" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
-            <stroke
-                android:width="24dp"
-                android:color="#E2E1E1" />
+            <padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <stroke android:color="@color/gray" android:width="@dimen/dim_xl" />
             <corners android:radius="3dp" />
         </shape>
     </item>
 
     <!-- Background -->
     <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#FFF" />
-            <corners android:radius="8dp" />
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/white" />
+            <corners android:radius="@dimen/dim_m" />
         </shape>
     </item>
 </layer-list>

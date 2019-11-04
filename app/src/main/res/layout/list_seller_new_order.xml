@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:layout_marginEnd="@dimen/dim_m"
             android:background="@drawable/shape_rectangel_corner_reduice"
             app:siShape="@drawable/shape_rounded_all_rectangle"
-            app:srcCompat="@drawable/ic_perm_identity_black"
+            app:srcCompat="@drawable/ic_perm_identity_white"
             android:layout_marginTop="@dimen/dim_s"
             android:layout_marginBottom="@dimen/dim_s"
             />
@@ -73,17 +74,14 @@
                 android:text="دجاج كنتاكي"
                 android:textColor="@color/colorAccent" />
 
-
         </LinearLayout>
 
-
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="@dimen/dim_2xl"
             android:layout_below="@id/Resturant_order_Image"
             android:layout_marginStart="@dimen/dim_2xl"
-            android:layout_marginTop="@dimen/dim_l"
+            android:layout_marginTop="@dimen/dim_m"
             android:layout_marginEnd="@dimen/dim_2xl"
             android:layout_marginBottom="@dimen/dim_m"
             android:orientation="horizontal">
@@ -95,9 +93,11 @@
                 android:layout_marginHorizontal="@dimen/dim_m"
                 android:layout_marginBottom="@dimen/dim_m"
                 android:layout_weight="1"
-                android:background="@drawable/shape_btn_splash"
+                android:background="@drawable/shape_btn_call"
+                android:drawableStart="@drawable/ic_reply_black"
                 android:text="@string/call"
                 android:textColor="@color/white"
+                android:drawableRight="@drawable/ic_like"
 
                 />
 
@@ -108,10 +108,11 @@
                 android:layout_marginHorizontal="@dimen/dim_m"
                 android:layout_marginBottom="@dimen/dim_m"
                 android:layout_weight="1"
-                android:background="@drawable/shape_btn_green"
+                android:background="@drawable/shape_btn_accept"
                 android:text="@string/accept"
                 android:textColor="@color/white"
-
+                android:drawableStart="@drawable/ic_like"
+                android:drawableRight="@drawable/ic_like"
                 />
 
             <Button
@@ -121,12 +122,12 @@
                 android:layout_marginHorizontal="@dimen/dim_m"
                 android:layout_marginBottom="@dimen/dim_m"
                 android:layout_weight="1"
-                android:background="@drawable/shape_btn_splash"
+                android:background="@drawable/shape_btn_refuse"
+                android:drawableStart="@drawable/ic_clear_black_24dp"
                 android:text="@string/refuse"
                 android:textColor="@color/white"
-
+                android:drawableRight="@drawable/ic_like"
                 />
         </LinearLayout>
-
     </RelativeLayout>
 </RelativeLayout>

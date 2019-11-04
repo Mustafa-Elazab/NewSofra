@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/dim_m"
         android:layout_marginEnd="-50dp"
         android:layout_toStartOf="@id/List_Detail_Img_ResImg_Rv"
-        android:background="@drawable/shape_rectangel_oral"
+        android:background="@drawable/shape_rect_gray"
 
         >
 
@@ -71,7 +71,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/List_Detail_Rat_Rate_Rv"
-
             android:layout_alignEnd="@+id/List_Detail_Tv_ResName_Rv"
             android:layout_marginTop="@dimen/dim_m"
             android:text="الحد الادني للطلب :15 ريال"

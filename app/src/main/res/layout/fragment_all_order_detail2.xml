@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_layout_border">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Fragment_client_all_order_detail2_img_clientimage"
+            android:layout_width="@dimen/dim_8xl"
+            android:layout_height="@dimen/dim_8xl"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:src="@drawable/newuser"
+
+            />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_clientname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:layout_toStartOf="@id/Fragment_client_all_order_detail2_img_clientimage"
+            android:text="fmmglnm.ng"
+            android:textSize="@dimen/txt_size_l" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_clientcreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_clientname"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:layout_toStartOf="@id/Fragment_client_all_order_detail2_img_clientimage"
+            android:text="fmmglnm.ng"
+            android:textSize="@dimen/txt_size_m" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Fragment_client_all_order_detail2_tv_clientaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dim_l"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_l"
+        android:background="@drawable/shape_layout_border"
+        android:padding="@dimen/dim_m"
+        android:text="fmmglnm.ngmhmggggggggggggggg"
+        android:textSize="@dimen/txt_size_m" />
+
+    <RelativeLayout
+        android:id="@+id/relative2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Fragment_client_all_order_detail2_tv_clientaddress"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_layout_border">
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="تفاصيل الطلب :"
+            android:textSize="@dimen/txt_size_l"
+            android:layout_alignParentEnd="true"
+
+            />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_order1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="fmmglnm.ng"
+
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_order2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_order1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="fmmglnm.ng"
+
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_order3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_order2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="fmmglnm.ng"
+            android:textSize="@dimen/txt_size_m" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative2"
+        android:layout_marginStart="@dimen/dim_m"
+        android:layout_marginTop="@dimen/dim_l"
+        android:layout_marginEnd="@dimen/dim_m"
+        android:background="@drawable/shape_layout_border"
+        >
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="تفاصيل 555 :"
+            android:textSize="@dimen/txt_size_m"
+            android:layout_alignParentEnd="true"
+
+            />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_deliverycost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_price"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="fmmglnm.ng"
+
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_deliverycost"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="fmmglnm.ng"
+
+            android:textSize="@dimen/txt_size_m" />
+
+        <TextView
+            android:id="@+id/Fragment_client_all_order_detail2_tv_paid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fragment_client_all_order_detail2_tv_total"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/dim_m"
+            android:layout_marginTop="@dimen/dim_m"
+            android:layout_marginEnd="@dimen/dim_m"
+            android:text="fmmglnm.ng"
+            android:textSize="@dimen/txt_size_m" />
+    </RelativeLayout>
+</RelativeLayout>

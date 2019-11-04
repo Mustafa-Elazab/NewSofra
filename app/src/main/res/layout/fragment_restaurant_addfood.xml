@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/gray"
+    >
 
 
 
@@ -11,7 +13,7 @@
         <RelativeLayout
             android:id="@+id/relative_write"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/fragment_resturant_addfood_tv_add"
@@ -25,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/fragment_resturant_addfood_img_add"
-                android:layout_width="@dimen/logo"
-                android:layout_height="@dimen/logo"
+                android:layout_width="@dimen/dim_image"
+                android:layout_height="@dimen/dim_image"
                 android:layout_below="@id/fragment_resturant_addfood_tv_add"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dim_xl"
@@ -40,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:paddingStart="@dimen/dim_l"
-                android:background="@drawable/shape_layout_border"
+                android:background="@drawable/shape_ed_white_rect"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginEnd="@dimen/dim_m"
                 android:layout_below="@id/fragment_resturant_addfood_img_add"
@@ -67,7 +69,7 @@
                 android:layout_height="@dimen/dim_10xl"
                 android:paddingStart="@dimen/dim_l"
                 android:paddingEnd="@dimen/dim_l"
-                android:background="@drawable/shape_layout_border"
+                android:background="@drawable/shape_ed_white_rect"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginEnd="@dimen/dim_m"
                 android:layout_below="@id/fragment_resturant_addfood_ed_add_foodname"
@@ -95,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:paddingStart="@dimen/dim_l"
-                android:background="@drawable/shape_layout_border"
+                android:background="@drawable/shape_ed_white_rect"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginEnd="@dimen/dim_m"
                 android:layout_below="@id/fragment_resturant_addfood_ed_add_fooddiscription"
@@ -123,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:paddingStart="@dimen/dim_l"
-                android:background="@drawable/shape_layout_border"
+                android:background="@drawable/shape_ed_white_rect"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginEnd="@dimen/dim_m"
                 android:layout_below="@id/fragment_resturant_addfood_ed_add_foodprice"
@@ -149,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_4xl"
                 android:paddingStart="@dimen/dim_l"
-                android:background="@drawable/shape_layout_border"
+                android:background="@drawable/shape_ed_white_rect"
                 android:layout_marginStart="@dimen/dim_m"
                 android:layout_marginEnd="@dimen/dim_m"
                 android:layout_below="@id/fragment_resturant_addfood_ed_add_fooddiscount"
@@ -163,7 +165,7 @@
                     android:layout_height="match_parent"
                     android:hint="@string/time_for_ready"
                     android:background="@null"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:lines="1"
                     android:maxLines="1"
                     android:imeOptions="actionNext"
@@ -185,7 +187,7 @@
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:textAlignment="center"
-                android:layout_marginBottom="@dimen/dim_7xl"
+                android:layout_marginBottom="@dimen/dim_l"
                 android:layout_marginTop="@dimen/dim_2xl"
                 />
         </RelativeLayout>

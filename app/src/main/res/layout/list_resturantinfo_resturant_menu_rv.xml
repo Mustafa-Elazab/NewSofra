@@ -10,13 +10,10 @@
     android:layout_marginStart="@dimen/dim_l"
     android:layout_marginEnd="@dimen/dim_l"
     >
-
-
-
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dim_18xl">
+        android:layout_height="@dimen/dim_16xl">
 
         <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
             android:id="@+id/List_Resturant_home_Image"
@@ -24,13 +21,11 @@
             android:layout_height="match_parent"
             android:background="@drawable/shape_rectangel_corner_reduice"
             app:siShape="@drawable/shape_rounded_all_rectangle"
-            app:srcCompat="@drawable/ic_perm_identity_black"
+            app:srcCompat="@drawable/ic_perm_identity_white"
             tools:ignore="VectorDrawableCompat"
             android:src="@drawable/pizzamin"
             android:scaleType="centerCrop"
             />
-
-
     </RelativeLayout>
 
     <RelativeLayout
